@@ -3,182 +3,296 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday ❤️</title>
+  <title>Birthday Surprise</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Comic Sans MS', cursive; }
-    body { background: #ffeef8; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-  .container { width: 90%; max-width: 800px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3); overflow: hidden; }
-  .screen { display: none; padding: 30px; text-align: center; }
-  .screen.active { display: block; }
-  .passcode-screen { display: flex; }
-  .left { flex: 1; background: #fff; padding: 40px 20px; position: relative; }
-  .right { flex: 1; background: #ffcde7; padding: 40px 20px; }
-  .cat-img { width: 200px; height: 200px; border-radius: 50%; border: 8px solid #ff8ec3; margin: 20px auto; object-fit: cover; }
-  .hearts { color: #ff4d94; font-size: 20px; }
-  .stars { position: absolute; color: #ff8ec3; font-size: 24px; }
-  .keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; max-width: 250px; margin: 20px auto; }
-  .key { background: white; border: none; border-radius: 15px; font-size: 24px; padding: 15px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-  .key:active { transform: scale(0.95); }
-  .display { letter-spacing: 10px; font-size: 30px; margin: 20px 0; color: #ff4d94; }
-  .btn { background: #ff4d94; color: white; border: none; padding: 12px 30px; border-radius: 25px; font-size: 18px; cursor: pointer; margin: 10px; }
-  .btn:active { transform: scale(0.95); }
-    h2 { color: #ff4d94; margin: 20px 0; }
-  .cartoon { width: 150px; margin: 20px auto; }
-  .wish-box { background: #fff5f9; border: 2px dashed #ff8ec3; border-radius: 15px; padding: 20px; text-align: left; margin: 20px 0; }
-    @media (max-width: 768px) {.passcode-screen { flex-direction: column; } }
+    body { 
+      background: #ffeef5; 
+      display: flex; 
+      justify-content: center; 
+      align-items: center; 
+      min-height: 100vh; 
+      overflow: hidden;
+    }
+    .screen { 
+      display: none; 
+      text-align: center; 
+      padding: 20px; 
+      max-width: 500px; 
+      width: 90%; 
+      background: white; 
+      border-radius: 20px; 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+      animation: fadeIn 0.5s;
+    }
+    .active { display: block; }
+    @keyframes fadeIn { from {opacity: 0} to {opacity: 1} }
+    .passcode-screen { display: flex; gap: 20px; }
+    .left { flex: 1; background: #ffd6e8; border-radius: 15px; padding: 20px; }
+    .right { flex: 1; }
+    .cat-img { 
+      width: 150px; 
+      height: 150px; 
+      border-radius: 50%; 
+      border: 8px solid #ff9ecb; 
+      margin: 10px auto;
+      object-fit: cover;
+    }
+    .heart-border { 
+      border: 3px dashed #ff6b9d; 
+      border-radius: 50%; 
+      padding: 5px; 
+      display: inline-block; 
+    }
+    .stars { color: #ff6b9d; margin: 10px 0; }
+    .keypad { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 15px; }
+    .key { 
+      background: #ff9ecb; 
+      border: none; 
+      border-radius: 50%; 
+      width: 60px; 
+      height: 60px; 
+      font-size: 24px; 
+      color: white; 
+      cursor: pointer; 
+      transition: 0.2s;
+    }
+    .key:hover { background: #ff6b9d; transform: scale(1.1); }
+    .display { 
+      background: #fff; 
+      border: 3px solid #ff9ecb; 
+      border-radius: 10px; 
+      padding: 10px; 
+      margin: 10px 0; 
+      font-size: 24px; 
+      letter-spacing: 10px; 
+    }
+    .btn { 
+      background: #ff6b9d; 
+      color: white; 
+      border: none; 
+      padding: 12px 30px; 
+      border-radius: 30px; 
+      font-size: 18px; 
+      cursor: pointer; 
+      margin: 10px 5px; 
+      transition: 0.2s;
+    }
+    .btn:hover { background: #ff4d8d; transform: scale(1.05); }
+    .sad-cat { width: 120px; margin: 15px 0; }
+    .msg { font-size: 24px; color: #ff4d8d; margin: 15px 0; font-weight: bold; }
+    .couple-img { width: 150px; margin: 15px 0; }
+    .wish-box { 
+      background: #fff5f9; 
+      border: 2px dashed #ff9ecb; 
+      border-radius: 15px; 
+      padding: 20px; 
+      text-align: left; 
+      margin: 15px 0; 
+    }
+    .photos { display: flex; justify-content: center; gap: 10px; margin: 15px 0; }
+    .photos img { width: 80px; height: 80px; border-radius: 10px; object-fit: cover; }
   </style>
 </head>
 <body>
-  <audio id="bgMusic" loop>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-  </audio>
-
-  <div class="container">
-    <div class="screen passcode-screen active" id="screen1">
+  <!-- Screen 1: Passcode -->
+  <div class="screen active" id="screen1">
+    <div class="passcode-screen">
       <div class="left">
-        <div class="stars" style="top:10%; left:10%;">★</div>
-        <div class="stars" style="top:80%; left:15%;">★</div>
-        <div class="stars" style="top:20%; right:10%;">★</div>
-        <div class="stars" style="top:70%; right:15%;">★</div>
-        <div class="hearts">❤️❤️❤️❤️</div>
-        <img src="https://i.imgur.com/6Iej2c3.png" alt="cute cat" class="cat-img">
-        <div class="hearts">❤️❤️❤️❤️</div>
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <div class="heart-border">
+          <img src="https://i.imgur.com/8QmW8aE.png" class="cat-img" alt="cat">
+        </div>
+        <div class="stars">★ ★ ★ ★ ★</div>
       </div>
       <div class="right">
-        <h2>Enter a passcode</h2>
-        <div class="display" id="display">----</div>
+        <h3 style="color:#ff4d8d">Enter a passcode</h3>
+        <div class="display" id="display">____</div>
         <div class="keypad">
-          <button class="key" onclick="playMusic(); enterNum(1)">1</button>
-          <button class="key" onclick="playMusic(); enterNum(2)">2</button>
-          <button class="key" onclick="playMusic(); enterNum(3)">3</button>
-          <button class="key" onclick="playMusic(); enterNum(4)">4</button>
-          <button class="key" onclick="playMusic(); enterNum(5)">5</button>
-          <button class="key" onclick="playMusic(); enterNum(6)">6</button>
-          <button class="key" onclick="playMusic(); enterNum(7)">7</button>
-          <button class="key" onclick="playMusic(); enterNum(8)">8</button>
-          <button class="key" onclick="playMusic(); enterNum(9)">9</button>
-          <button class="key" onclick="playMusic(); clearNum()">*</button>
-          <button class="key" onclick="playMusic(); enterNum(0)">0</button>
-          <button class="key" onclick="playMusic(); checkPass()">#</button>
+          <button class="key" onclick="addNum(1)">1</button>
+          <button class="key" onclick="addNum(2)">2</button>
+          <button class="key" onclick="addNum(3)">3</button>
+          <button class="key" onclick="addNum(4)">4</button>
+          <button class="key" onclick="addNum(5)">5</button>
+          <button class="key" onclick="addNum(6)">6</button>
+          <button class="key" onclick="addNum(7)">7</button>
+          <button class="key" onclick="addNum(8)">8</button>
+          <button class="key" onclick="addNum(9)">9</button>
+          <button class="key" onclick="clearNum()">*</button>
+          <button class="key" onclick="addNum(0)">0</button>
+          <button class="key" onclick="checkPass()">#</button>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="screen" id="screen2">
-      <h2 id="wrongText">WRONG</h2>
-      <img src="https://i.imgur.com/sJ3CT4V.png" alt="sad" class="cartoon">
-      <button class="btn" onclick="tryAgain()">TRY AGAIN</button>
-    </div>
+  <!-- Screen 2: Wrong Passcode -->
+  <div class="screen" id="screen2">
+    <div class="msg" id="wrongMsg">WRON</div>
+    <img src="https://i.imgur.com/3QmW8aE.png" class="sad-cat" alt="sad cats">
+    <br>
+    <button class="btn" onclick="tryAgain()">TRY AGAIN</button>
+  </div>
 
-    <div class="screen" id="screen3">
-      <h2 id="typeText"></h2>
-      <img src="https://i.imgur.com/8Q1Y5oE.png" alt="cute" class="cartoon">
-      <button class="btn" onclick="showBirthday()">YES</button>
-      <button class="btn" onclick="clickNo()">NO</button>
-    </div>
+  <!-- Screen 3: Made Something Special -->
+  <div class="screen" id="screen3">
+    <div class="msg" id="typedText"></div>
+    <img src="https://i.imgur.com/5QmW8aE.png" class="couple-img" alt="cats in box">
+    <br>
+    <button class="btn" onclick="showNext(4)">YES</button>
+    <button class="btn" onclick="clickNo()">NO</button>
+  </div>
 
-    <div class="screen" id="screen4">
-      <h2>HAPPY BIRTHDAY baby</h2>
-      <img src="https://i.imgur.com/8Q1Y5oE.png" alt="bday" class="cartoon">
-      <div class="wish-box">
-        <h3>MY WISH FOR U ❤️</h3>
-        <p>Happiest birthday to you! I wish you all the happiness and success in your life. May you be the happiest person on this earth. You are the most beautiful person I've ever met. You make me happy every day. Thank you for being in my life. I love you ❤️</p>
-      </div>
-      <button class="btn" onclick="nextScreen()">Next ➜</button>
-    </div>
+  <!-- Screen 4: Why did u click no -->
+  <div class="screen" id="screen4">
+    <div class="msg" id="whyMsg">Wh</div>
+    <img src="https://i.imgur.com/6QmW8aE.png" class="sad-cat" alt="sad cats">
+    <br>
+    <button class="btn" onclick="tryAgain()">TRY AGAIN</button>
+  </div>
 
-    <div class="screen" id="screen5">
-      <h2>Virtual hug for ya!</h2>
-      <img src="https://i.imgur.com/sJ3CT4V.png" alt="hug" class="cartoon">
-      <h2 style="color:#ff4d94;">I MISS YOU</h2>
-      <button class="btn" onclick="nextScreen()">Next ➜</button>
-    </div>
+  <!-- Screen 5: Happy Birthday -->
+  <div class="screen" id="screen5">
+    <img src="https://i.imgur.com/7QmW8aE.png" class="couple-img" alt="birthday cats">
+    <div class="msg" id="bdayMsg">HAPP</div>
+    <p style="font-family:cursive; color:#ff6b9d; margin:10px 0">I love you so much</p>
+  </div>
 
-    <div class="screen" id="screen6">
-      <h2>Will you be mine?</h2>
-      <img src="https://i.imgur.com/6Iej2c3.png" alt="proposal" class="cartoon">
-      <button class="btn">YES ❤️</button>
+  <!-- Screen 6: My Wish -->
+  <div class="screen" id="screen6">
+    <h2 style="color:#ff4d8d">❤️ MY WISH FOR U ❤️</h2>
+    <div class="wish-box">
+      <p>Happiest bday jiju 💕</p>
+      <p>I wish May Allah bless u with all the happiness and success in your life.</p>
+      <p>May you always be the happiest person on this earth and may all your wishes come true.</p>
+      <p>Hope this year brings you more love, more joy, and more reasons to smile every single day.</p>
+      <p>You are the most precious person in my life.</p>
+      <p>You are my comfort zone, my happy place.</p>
+      <p>You make me laugh when I don't even want to smile.</p>
+      <p>Thank you for being my safe place, my constant support, my best friend, and my everything.</p>
+      <p>Thank you for always being there for me through every up and down.</p>
+      <p>Once again, Happiest Birthday, my love, my jaan.</p>
+      <p>May we celebrate all your birthdays together.</p>
+      <p>Forever yours, your baby, your love, your lifeline.</p>
     </div>
   </div>
 
-  <script>
-    let passcode = "";
-    const correctPass = "0530"; // TERA PASSWORD 0530 SET HAI
-    let currentScreen = 1;
-    let musicStarted = false;
+  <!-- Screen 7: Virtual Hug -->
+  <div class="screen" id="screen7">
+    <div class="msg">Virtual hug for ya!</div>
+    <img src="https://i.imgur.com/9QmW8aE.png" class="couple-img" alt="hug cats">
+    <div class="msg" style="margin-top:10px">I MISS YOU</div>
+  </div>
 
-    function playMusic() {
-      if (!musicStarted) {
-        document.getElementById('bgMusic').play();
-        musicStarted = true;
-      }
+  <!-- Screen 8: Will you be mine -->
+  <div class="screen" id="screen8">
+    <div class="msg">Will you be mine?</div>
+    <div class="photos">
+      <img src="https://i.imgur.com/1QmW8aE.jpg" alt="photo1">
+      <img src="https://i.imgur.com/2QmW8aE.jpg" alt="photo2">
+      <img src="https://i.imgur.com/4QmW8aE.jpg" alt="photo3">
+    </div>
+    <img src="https://i.imgur.com/0QmW8aE.jpg" style="width:200px; border-radius:15px; margin:10px 0" alt="main photo">
+  </div>
+
+  <script>
+    let pass = '';
+    const correctPass = '1126';
+    let wrongText = 'WRONG PASSCODE!';
+    let whyText = 'Why did u click no?!';
+    let bdayText = 'HAPPY BIRTHDAY baby';
+    let typeText = 'I made something special for u do u wanna see?';
+    
+    function showScreen(id) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
     }
 
-    function enterNum(num) {
-      if (passcode.length < 4) {
-        passcode += num;
-        document.getElementById("display").textContent = passcode.padEnd(4, '-');
+    function addNum(n) {
+      if(pass.length < 4) {
+        pass += n;
+        document.getElementById('display').textContent = pass.padEnd(4,'_');
       }
     }
 
     function clearNum() {
-      passcode = "";
-      document.getElementById("display").textContent = "----";
+      pass = '';
+      document.getElementById('display').textContent = '____';
     }
 
     function checkPass() {
-      if (passcode === correctPass) {
-        showScreen(3);
+      if(pass === correctPass) {
+        showScreen('screen3');
         typeWriter();
       } else {
-        showWrongAnim();
+        showScreen('screen2');
+        typeWriterWrong();
+        pass = '';
+        document.getElementById('display').textContent = '____';
       }
     }
 
-    function showWrongAnim() {
-      showScreen(2);
-      let texts = ["WRONG", "WRONG PASS", "WRONG PASSCODE!"];
-      let i = 0;
-      let interval = setInterval(() => {
-        document.getElementById("wrongText").textContent = texts[i];
-        i++;
-        if (i === texts.length) clearInterval(interval);
-      }, 400);
-    }
-
     function tryAgain() {
-      clearNum();
-      showScreen(1);
-    }
-
-    function showScreen(num) {
-      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-      document.getElementById('screen' + num).classList.add('active');
-      currentScreen = num;
+      showScreen('screen1');
     }
 
     function typeWriter() {
-      const text = "I made something special for u, do u wanna see?";
       let i = 0;
-      document.getElementById("typeText").textContent = "";
+      document.getElementById('typedText').textContent = '';
       let interval = setInterval(() => {
-        document.getElementById("typeText").textContent += text[i];
-        i++;
-        if (i === text.length) clearInterval(interval);
-      }, 50);
+        if(i < typeText.length) {
+          document.getElementById('typedText').textContent += typeText.charAt(i);
+          i++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 80);
+    }
+
+    function typeWriterWrong() {
+      let i = 0;
+      document.getElementById('wrongMsg').textContent = '';
+      let interval = setInterval(() => {
+        if(i < wrongText.length) {
+          document.getElementById('wrongMsg').textContent += wrongText.charAt(i);
+          i++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 100);
     }
 
     function clickNo() {
-      showScreen(2);
-      document.getElementById("wrongText").textContent = "Why did u click no? 😢";
+      showScreen('screen4');
+      let i = 0;
+      document.getElementById('whyMsg').textContent = '';
+      let interval = setInterval(() => {
+        if(i < whyText.length) {
+          document.getElementById('whyMsg').textContent += whyText.charAt(i);
+          i++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 100);
     }
 
-    function showBirthday() {
-      showScreen(4);
-    }
-
-    function nextScreen() {
-      showScreen(currentScreen + 1);
+    function showNext(n) {
+      if(n === 4) {
+        showScreen('screen5');
+        let i = 0;
+        document.getElementById('bdayMsg').textContent = '';
+        let interval = setInterval(() => {
+          if(i < bdayText.length) {
+            document.getElementById('bdayMsg').textContent += bdayText.charAt(i);
+            i++;
+          } else {
+            clearInterval(interval);
+            setTimeout(() => showScreen('screen6'), 2000);
+            setTimeout(() => showScreen('screen7'), 6000);
+            setTimeout(() => showScreen('screen8'), 10000);
+          }
+        }, 100);
+      }
     }
   </script>
 </body>
