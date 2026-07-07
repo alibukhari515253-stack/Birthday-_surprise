@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For You Only ❤️</title>
+<title>For My Bestie ❤️</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap');
   body {margin: 0;font-family: 'Poppins', sans-serif;background: linear-gradient(135deg, #ff9a9e, #fecfef);display: flex;justify-content: center;align-items: center;min-height: 100vh;padding: 20px;overflow: hidden;}
-  .container {background: white;padding: 30px 20px;border-radius: 25px;box-shadow: 0 10px 30px rgba(0,0,0,0.2);text-align: center;width: 90%;max-width: 400px;position: relative;}
+  .container {background: white;padding: 30px 20px;border-radius: 25px;box-shadow: 0 10px 30px rgba(0,0,0,0.2);text-align: center;width: 90%;max-width: 400px;}
   h1 { font-family: 'Great Vibes', cursive;color: #ff4d88; font-size: 30px;margin: 10px 0;}
-  .msg { font-size: 17px; color: #444; margin: 20px 0; line-height: 1.8; }
+  .msg { font-size: 16px; color: #444; margin: 20px 0; line-height: 1.8; }
   input {padding: 12px;border: 2px solid #ff4d88;border-radius: 12px;width: 80%;font-size: 16px;text-align: center;}
   button {margin-top: 15px;padding: 12px 25px;background: #ff4d88;color: white;border: none;border-radius: 15px;font-size: 16px;font-weight: 600;cursor: pointer;}
   button:hover { background: #e03e75; transform: scale(1.05); }
   .screen { display: none; }
   .active { display: block; animation: fadeIn 0.8s; }
-  @keyframes fadeIn { from {opacity:0; transform:scale(0.9)} to {opacity:1; transform:scale(1)} }
-  .birthday-img img {width: 90%;border-radius: 20px;margin: 15px 0;box-shadow: 0 5px 15px rgba(0,0,0,0.1);}
+  @keyframes fadeIn { from {opacity:0} to {opacity:1} }
+  .birthday-img img {width: 90%;border-radius: 20px;margin: 15px 0;}
   .heart { font-size: 60px; color: red; animation: beat 1s infinite; }
   @keyframes beat { 0%,100%{transform:scale(1)} 50%{transform:scale(1.3)} }
   .confetti {position: fixed; top:0; left:0; width:100%; height:100%;pointer-events:none; display:none; z-index:999;}
@@ -27,65 +27,85 @@
 
 <canvas class="confetti" id="confetti"></canvas>
 
-<!-- MUSIC -->
 <audio id="bgMusic" loop>
   <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
 </audio>
 
 <div class="container">
-  <!-- Screen 1: PASSWORD -->
   <div class="screen active" id="screen1">
     <h1>🔒 Enter Password</h1>
     <input type="password" id="password" placeholder="Enter Password">
     <br><button onclick="checkPassword()">Open</button>
-    <p id="error" style="color:red; display:none; margin-top:10px;">Wrong Password!</p>
+    <p id="error" style="color:red; display:none;">Wrong Password!</p>
   </div>
 
-  <!-- 25 WISHES + SHAYARI -->
-  <div class="screen" id="screen2"><h1>Hey You! 👋</h1><p class="msg">Aaj ka din bohot special hai... pata hai kyun? ❤️</p><button onclick="nextScreen(3)">Next</button></div>
-  <div class="screen" id="screen3"><h1>Because... 🎂</h1><p class="msg">Aaj tum is duniya mein aayi thi!<br>Aur duniya ko khoobsurat bana diya tha ✨</p><button onclick="nextScreen(4)">Next</button></div>
-  <div class="screen" id="screen4"><h1>Tumhari Smile 😊</h1><p class="msg">Tumhari smile dekh kar mera din ban jata hai.<br>Itni pyari smile sirf tumhari hi ho sakti hai!</p><button onclick="nextScreen(5)">Next</button></div>
-  <div class="screen" id="screen5"><h1>Tumhari Aankhein 👀</h1><p class="msg">Tumhari aankhon mein ajeeb sa sukoon hai.<br>Jaise sab tension khatam ho jaye.</p><button onclick="nextScreen(6)">Next</button></div>
-  <div class="screen" id="screen6"><h1>Tumhara Dil ❤️</h1><p class="msg">Tumhara dil sona hai.<br>Itni care karti ho sabki. I love that about you!</p><button onclick="nextScreen(7)">Next</button></div>
-  <div class="screen" id="screen7"><h1>Tumhari Baatein 💬</h1><p class="msg">Tumse baat karke time ka pata hi nahi chalta.<br>Har baat yaad reh jati hai.</p><button onclick="nextScreen(8)">Next</button></div>
-  <div class="screen" id="screen8"><h1>Shayari #1 🌹</h1><p class="msg">Tumhari ek jhalak ke liye,<br>Din bhar intezaar karta hun.<br>Tum mil jao to lagta hai,<br>Jaise jannat paa li ho!</p><button onclick="nextScreen(9)">Next</button></div>
-  <div class="screen" id="screen9"><h1>Shayari #2 ✨</h1><p class="msg">Tum chand ho aur main raat,<br>Tum khushboo ho aur main baat.<br>Tum dua ho aur main haath,<br>Tum saath ho to meri har baat!</p><button onclick="nextScreen(10)">Next</button></div>
-  <div class="screen" id="screen10"><h1>Tum Special Ho 🌟</h1><p class="msg">100 mein se 1 hoti ho tum.<br>Bilkul unique aur amazing!</p><button onclick="nextScreen(11)">Next</button></div>
-  <div class="screen" id="screen11"><h1>Wish #1 🎁</h1><p class="msg">Allah tumhe dher saari khushiyan de.<br>Jo tum chaho wo sab mile!</p><button onclick="nextScreen(12)">Next</button></div>
-  <div class="screen" id="screen12"><h1>Wish #2 🎈</h1><p class="msg">Tumhari har dua qabool ho.<br>Har mushkil aasan ho jaye!</p><button onclick="nextScreen(13)">Next</button></div>
-  <div class="screen" id="screen13"><h1>Wish #3 🌹</h1><p class="msg">Tum hamesha aise hi hasti raho.<br>Tumhari hansi sabse pyari hai!</p><button onclick="nextScreen(14)">Next</button></div>
-  <div class="screen" id="screen14"><h1>Wish #4 🎂</h1><p class="msg">Ye saal tumhare liye sabse best ho.<br>Har din naya surprise mile!</p><button onclick="nextScreen(15)">Next</button></div>
-  <div class="screen" id="screen15"><h1>Wish #5 💫</h1><p class="msg">Tumhare chehre ki roshni kabhi kam na ho.<br>Har khushi tumhare kadam chume!</p><button onclick="nextScreen(16)">Next</button></div>
-  <div class="screen" id="screen16"><h1>Wish #6 🎉</h1><p class="msg">Tum jahan raho, khush raho.<br>Tumhari zindagi phoolon jaisi ho!</p><button onclick="nextScreen(17)">Next</button></div>
-  <div class="screen" id="screen17"><h1>Wish #7 💕</h1><p class="msg">Tumhare sapne sab pure hon.<br>Jo chaho wo tumhe mile!</p><button onclick="nextScreen(18)">Next</button></div>
-  <div class="screen" id="screen18"><h1>Thank You #1 💖</h1><p class="msg">Meri life mein aane ke liye shukriya.<br>Tumne sab kuch behtar bana diya!</p><button onclick="nextScreen(19)">Next</button></div>
-  <div class="screen" id="screen19"><h1>Thank You #2 🥺</h1><p class="msg">Tumhare saath har pal khaas hai.<br>Thank you itna special hone ke liye!</p><button onclick="nextScreen(20)">Next</button></div>
-  <div class="screen" id="screen20"><h1>Ek Baat Kahun? ❤️</h1><p class="msg">Tum bohot important ho mere liye.<br>Bohot zyada!</p><button onclick="nextScreen(21)">Next</button></div>
-  <div class="screen" id="screen21"><h1>Shayari #3 💌</h1><p class="msg">Tum bin zindagi adhoori si lagti hai,<br>Tumhare bina har khushi poori si lagti hai.<br>Tum ho to sab kuch hai,<br>Tum nahi to kuch bhi nahi!</p><button onclick="nextScreen(22)">Next</button></div>
-  <div class="screen" id="screen22"><h1>Almost There... 🎊</h1><p class="msg">Bas 3 pages aur... phir sabse important baat!</p><button onclick="nextScreen(23)">Next</button></div>
-  <div class="screen" id="screen23"><h1>Ready? 🥹</h1><p class="msg">Saans roko... ye aakhri 2 message hain!</p><button onclick="nextScreen(24)">Next</button></div>
-  <div class="screen" id="screen24"><h1>Last One ❤️</h1><p class="msg">Tum mere liye duniya ki sabse khoobsurat tohfa ho.<br>I am so lucky to have you!</p><button onclick="nextScreen(25)">Final</button></div>
+  <!-- GIRL TO GIRL WISHES -->
+  <div class="screen" id="screen2"><h1>Hey Bestie! 👋</h1><p class="msg">Aaj ka din bohot special hai...<br>Kyun? Chalo batati hun ❤️</p><button onclick="nextScreen(3)">Next</button></div>
+  
+  <div class="screen" id="screen3"><h1>Aaj... 🎂</h1><p class="msg">Aaj meri sabse pyari dost ka birthday hai!<br>Jo meri zindagi ki roshni hai ✨</p><button onclick="nextScreen(4)">Next</button></div>
 
-  <!-- Screen 25: FINAL -->
+  <div class="screen" id="screen4"><h1>Teri Smile 😊</h1><p class="msg">Teri smile dekh kar mera mood theek ho jata hai.<br>Tu hansti hai to lagta hai duniya haseen hai!</p><button onclick="nextScreen(5)">Next</button></div>
+
+  <div class="screen" id="screen5"><h1>Shayari #1 🌸</h1><p class="msg">"Tu meri best friend hai,<br>Behen jaisi hai.<br>Tere bina meri zindagi,<br>Adhoori si lagti hai."</p><button onclick="nextScreen(6)">Next</button></div>
+
+  <div class="screen" id="screen6"><h1>Tu Special Hai 🌟</h1><p class="msg">Tu 100 mein se 1 hai.<br>Tere jaisi dost kismat walon ko milti hai!</p><button onclick="nextScreen(7)">Next</button></div>
+
+  <div class="screen" id="screen7"><h1>Shayari #2 💖</h1><p class="msg">"Teri dosti ek tohfa hai,<br>Jo rab ne mujhe diya.<br>Teri har baat dil ko,<br>Sukoon se bhar deti hai."</p><button onclick="nextScreen(8)">Next</button></div>
+
+  <div class="screen" id="screen8"><h1>Wish #1 🎁</h1><p class="msg">Allah tujhe dher saari khushiyan de.<br>Tu hamesha aise hi chamakti rahe!</p><button onclick="nextScreen(9)">Next</button></div>
+
+  <div class="screen" id="screen9"><h1>Wish #2 🎈</h1><p class="msg">Teri har dua qabool ho.<br>Har mushkil aasan ho jaye meri jaan!</p><button onclick="nextScreen(10)">Next</button></div>
+
+  <div class="screen" id="screen10"><h1>Shayari #3 🌹</h1><p class="msg">"Teri baaton mein pyaar hai,<br>Teri dosty mein yaar hai.<br>Tu saath ho to lagta hai,<br>Zindagi mein bahaar hai."</p><button onclick="nextScreen(11)">Next</button></div>
+
+  <div class="screen" id="screen11"><h1>Wish #3 💫</h1><p class="msg">Tere chehre ki roshni kabhi kam na ho.<br>Har khushi tere kadam chume!</p><button onclick="nextScreen(12)">Next</button></div>
+
+  <div class="screen" id="screen12"><h1>Wish #4 🎉</h1><p class="msg">Ye saal tere liye sabse best ho.<br>Har din naya surprise mile!</p><button onclick="nextScreen(13)">Next</button></div>
+
+  <div class="screen" id="screen13"><h1>Shayari #4 👭</h1><p class="msg">"Hum dono ki jodi kamaal hai,<br>Ek dusre ke bina behaal hai.<br>Tu meri jaan hai yaar,<br>Tu meri duniya ki pehchaan hai."</p><button onclick="nextScreen(14)">Next</button></div>
+
+  <div class="screen" id="screen14"><h1>Wish #5 🌹</h1><p class="msg">Tu jahan rahe khush rahe.<br>Teri zindagi phoolon jaisi ho!</p><button onclick="nextScreen(15)">Next</button></div>
+
+  <div class="screen" id="screen15"><h1>Wish #6 💕</h1><p class="msg">Tere sapne sab pure hon.<br>Jo chahe wo tujhe mile!</p><button onclick="nextScreen(16)">Next</button></div>
+
+  <div class="screen" id="screen16"><h1>Shayari #5 💌</h1><p class="msg">"Dosti ka rishta anmol hai,<br>Tera saath sabse anmol hai.<br>Tu meri bestie hai,<br>Aur ye rishta amar hai."</p><button onclick="nextScreen(17)">Next</button></div>
+
+  <div class="screen" id="screen17"><h1>Thank You #1 🥺</h1><p class="msg">Meri life mein aane ka shukriya.<br>Tu na hoti to main kya karti!</p><button onclick="nextScreen(18)">Next</button></div>
+
+  <div class="screen" id="screen18"><h1>Thank You #2 ❤️</h1><p class="msg">Har dukh mein saath dene ke liye shukriya.<br>Har khushi double karne ke liye shukriya!</p><button onclick="nextScreen(19)">Next</button></div>
+
+  <div class="screen" id="screen19"><h1>Shayari #6 ✨</h1><p class="msg">"Tu meri hansi hai,<br>Tu mera sukoon hai.<br>Tu meri best friend hai,<br>Tu mera junoon hai."</p><button onclick="nextScreen(20)">Next</button></div>
+
+  <div class="screen" id="screen20"><h1>Ek Baat Sun 👂</h1><p class="msg">Tu bohot important hai mere liye.<br>Bohot zyada samjhi?</p><button onclick="nextScreen(21)">Next</button></div>
+
+  <div class="screen" id="screen21"><h1>Wish #7 🎊</h1><p class="msg">Allah tujhe hamesha salamat rakhe.<br>Nazar na lage meri dost ko!</p><button onclick="nextScreen(22)">Next</button></div>
+
+  <div class="screen" id="screen22"><h1>Almost Done... 🎁</h1><p class="msg">Bas 3 pages aur... phir sabse bada surprise!</p><button onclick="nextScreen(23)">Next</button></div>
+
+  <div class="screen" id="screen23"><h1>Ready? 🥹</h1><p class="msg">Saans roko... ye aakhri 2 message hain!</p><button onclick="nextScreen(24)">Next</button></div>
+
+  <div class="screen" id="screen24"><h1>Last One 💖</h1><p class="msg">Tu duniya ki sabse achi dost hai.<br>I love you so much bestie!</p><button onclick="nextScreen(25)">Final</button></div>
+
+  <!-- FINAL PAGE -->
   <div class="screen" id="screen25">
-    <h1>Happy Birthday! 🎂</h1>
+    <h1>Happy Birthday Bestie! 🎂</h1>
     <div class="birthday-img">
       <img src="https://i.ibb.co/rKtRw3WN/photo.jpg" alt="Birthday Cake">
     </div>
-    <p class="msg">I Love You ❤️<br>Tum mere liye sabse khaas ho!</p>
+    <p class="msg">I Love You ❤️<br>Tu mere liye sabse khaas hai!</p>
     <div class="heart">❤️</div>
   </div>
 </div>
 
 <script>
-  const correctPass = "1126"; // <-- YAHAN APNA PASSWORD DAL DO
+  const correctPass = "1126"; 
   const music = document.getElementById("bgMusic");
 
   function checkPassword() {
     let pass = document.getElementById("password").value;
     if(pass === correctPass) {
       showConfetti();
-      music.play(); // MUSIC START
+      music.play();
       setTimeout(() => nextScreen(2), 1500);
     } else {
       document.getElementById("error").style.display = "block";
@@ -99,21 +119,12 @@
     const canvas = document.getElementById('confetti');
     canvas.style.display = 'block';
     const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth; canvas.height = window.innerHeight;
     let pieces = [];
-    for(let i=0; i<150; i++){
-      pieces.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height-100, r:Math.random()*4+1, d:Math.random()*10})
-    }
+    for(let i=0; i<150; i++){pieces.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height-100, r:Math.random()*4+1})}
     function draw(){
       ctx.clearRect(0,0,canvas.width,canvas.height);
-      pieces.forEach(p=>{
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-        ctx.fillStyle = `hsl(${Math.random()*360},100%,50%)`;
-        ctx.fill();
-        p.y += 3;
-      })
+      pieces.forEach(p=>{ctx.beginPath();ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);ctx.fillStyle = `hsl(${Math.random()*360},100%,50%)`;ctx.fill();p.y += 3;})
     }
     let anim = setInterval(draw, 20);
     setTimeout(()=>{clearInterval(anim); canvas.style.display='none'}, 4000);
