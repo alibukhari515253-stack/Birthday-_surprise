@@ -3,135 +3,102 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For You ❤️</title>
+<title>Happy Birthday 🎂</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap');
   body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 20px;
+    overflow: hidden;
   }
   .container {
     background: white;
-    padding: 30px 20px;
+    padding: 25px 20px;
     border-radius: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     text-align: center;
     width: 90%;
-    max-width: 400px;
+    max-width: 380px;
+    animation: pop 1s ease;
   }
+  @keyframes pop { from {transform:scale(0.8); opacity:0} to {transform:scale(1); opacity:1} }
   h1 { 
     font-family: 'Great Vibes', cursive;
     color: #ff4d88; 
-    font-size: 32px;
-    margin-bottom: 10px;
+    font-size: 36px;
+    margin: 10px 0;
   }
-  .msg { font-size: 16px; color: #444; margin: 15px 0; line-height: 1.6; }
-  input {
-    padding: 12px;
-    border: 2px solid #ff4d88;
-    border-radius: 12px;
-    width: 80%;
-    font-size: 16px;
-    text-align: center;
-  }
+  .msg { font-size: 16px; color: #444; margin: 15px 0; line-height: 1.7; }
   button {
     margin-top: 15px;
     padding: 12px 25px;
     background: #ff4d88;
     color: white;
     border: none;
-    border-radius: 12px;
+    border-radius: 15px;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255,77,136,0.3);
   }
-  button:hover { background: #e03e75; }
+  button:hover { background: #e03e75; transform: scale(1.05); }
   .screen { display: none; }
   .active { display: block; animation: fadeIn 0.8s; }
   @keyframes fadeIn { from {opacity:0} to {opacity:1} }
-  
-  .photos {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin: 20px 0;
-  }
-  .photos img {
-    width: 31%;
-    border-radius: 15px;
-    object-fit: cover;
-    aspect-ratio: 1/1;
-  }
-  .big-photo img {
-    width: 90%;
-    border-radius: 20px;
-    margin: 15px 0;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  }
-  .heart { font-size: 60px; color: red; animation: beat 1s infinite; }
+  .balloons { font-size: 40px; margin: 10px 0; }
+  .cake { font-size: 70px; margin: 15px 0; animation: bounce 1.5s infinite; }
+  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+  .heart { font-size: 50px; color: red; animation: beat 1s infinite; }
   @keyframes beat { 0%,100%{transform:scale(1)} 50%{transform:scale(1.3)} }
-  .final { font-size: 24px; color: #ff4d88; font-weight: bold; margin-top: 10px; }
 </style>
 </head>
 <body>
 
 <div class="container">
-  <!-- Screen 1: Password -->
+  <!-- Screen 1 -->
   <div class="screen active" id="screen1">
-    <h1>🔒 Enter Password</h1>
-    <p class="msg">Hint: 1126</p>
-    <input type="password" id="password" placeholder="Password">
-    <br>
-    <button onclick="checkPassword()">Open</button>
-    <p id="error" style="color:red; display:none;">Wrong Password!</p>
+    <div class="balloons">🎈</div>
+    <h1>Happy Birthday!</h1>
+    <p class="msg">Aaj tumhara din hai ✨<br>Toh ye choti si surprise sirf tumhare liye ❤️</p>
+    <button onclick="nextScreen(2)">Click Me</button>
   </div>
 
-  <!-- Screen 2 to 7: Wishes -->
+  <!-- Screen 2 -->
   <div class="screen" id="screen2">
-    <h1>Happy Birthday 🎂</h1>
-    <p class="msg">Aaj tumhara din hai... aur ye choti si surprise sirf tumhare liye ❤️</p>
+    <h1>Wish #1 🎁</h1>
+    <p class="msg">Tumhari smile hamesha aise hi chamakti rahe 😊<br>Tum duniya ki sabse khoobsurat ho!</p>
     <button onclick="nextScreen(3)">Next</button>
   </div>
 
-  <div class="screen" id="screen3"><p class="msg">Tumhari smile duniya ki sabse khoobsurat cheez hai 😊</p><button onclick="nextScreen(4)">Next</button></div>
-  <div class="screen" id="screen4"><p class="msg">Har din tumhare saath ek nayi khushi lagta hai ✨</p><button onclick="nextScreen(5)">Next</button></div>
-  <div class="screen" id="screen5"><p class="msg">Tum special ho... bohot zyada special 💕</p><button onclick="nextScreen(6)">Next</button></div>
-  <div class="screen" id="screen6"><p class="msg">Main chahta hun ye saal tumhare liye sabse best ho 🎉</p><button onclick="nextScreen(7)">Next</button></div>
-  <div class="screen" id="screen7"><p class="msg">Toh chalo... aakhri sawal 👇</p><button onclick="nextScreen(8)">Next</button></div>
+  <!-- Screen 3 -->
+  <div class="screen" id="screen3">
+    <h1>Wish #2 🌟</h1>
+    <p class="msg">Tumhari har dua, har khwahish poori ho 💫<br>Ye saal tumhare liye sabse best ho!</p>
+    <button onclick="nextScreen(4)">Next</button>
+  </div>
 
-  <!-- Screen 8: FINAL - Video wala design -->
-  <div class="screen" id="screen8">
-    <h1>Will you be mine? 🥺</h1>
-    
-    <!-- 3 CHOTI HAPPY BIRTHDAY PHOTOS -->
-    <div class="photos">
-      <img src="https://i.ibb.co/YBv0LQb8/birthday-cake1.jpg" alt="cake1">
-      <img src="https://i.ibb.co/0yK6sZkQ/birthday-balloon.jpg" alt="balloon">
-      <img src="https://i.ibb.co/1Y2Z8Xw9/birthday-gift.jpg" alt="gift">
-    </div>
+  <!-- Screen 4 -->
+  <div class="screen" id="screen4">
+    <h1>Wish #3 💕</h1>
+    <p class="msg">Tum jaisi dost har kisi ko mile ❤️<br>Thank you mere saath hone ke liye!</p>
+    <button onclick="nextScreen(5)">Last One</button>
+  </div>
 
-    <!-- 1 BADI HAPPY BIRTHDAY PHOTO -->
-    <div class="big-photo">
-      <img src="https://i.ibb.co/5x2yQZkR/happy-birthday-cake.jpg" alt="Happy Birthday">
-    </div>
-
+  <!-- Screen 5: Final -->
+  <div class="screen" id="screen5">
+    <div class="cake">🎂</div>
+    <h1>I Love You</h1>
+    <p class="msg">Happy Birthday meri jaan 🥺❤️<br>Tum bohot special ho!</p>
     <div class="heart">❤️</div>
-    <div class="final">I Love You ❤️</div>
   </div>
 </div>
 
 <script>
-  function checkPassword() {
-    let pass = document.getElementById("password").value;
-    if(pass === "1126") { nextScreen(2); } 
-    else { document.getElementById("error").style.display = "block"; }
-  }
   function nextScreen(n) {
     document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
     document.getElementById("screen" + n).classList.add("active");
