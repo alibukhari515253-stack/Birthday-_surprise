@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For You ❤️</title>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap');
   body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -12,48 +13,70 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    padding: 20px;
   }
   .container {
     background: white;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    padding: 30px 20px;
+    border-radius: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     text-align: center;
     width: 90%;
     max-width: 400px;
-    animation: fadeIn 1s ease;
   }
-  @keyframes fadeIn { from {opacity:0; transform:scale(0.9)} to {opacity:1; transform:scale(1)} }
-  h1 { color: #e91e63; font-size: 24px; }
-  p { color: #444; font-size: 16px; }
+  h1 { 
+    font-family: 'Great Vibes', cursive;
+    color: #ff4d88; 
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  .msg { font-size: 16px; color: #444; margin: 15px 0; line-height: 1.6; }
   input {
-    padding: 10px;
-    border: 2px solid #e91e63;
-    border-radius: 10px;
+    padding: 12px;
+    border: 2px solid #ff4d88;
+    border-radius: 12px;
     width: 80%;
     font-size: 16px;
     text-align: center;
   }
   button {
     margin-top: 15px;
-    padding: 10px 20px;
-    background: #e91e63;
+    padding: 12px 25px;
+    background: #ff4d88;
     color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 12px;
     font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
   }
-  button:hover { background: #c2185b; }
+  button:hover { background: #e03e75; }
   .screen { display: none; }
-  .active { display: block; }
-  .msg { font-size: 18px; color: #333; margin: 20px 0; }
-  .photos { display: flex; justify-content: center; gap: 10px; margin: 20px 0; }
-  .heart { font-size: 50px; color: red; animation: beat 1s infinite; }
+  .active { display: block; animation: fadeIn 0.8s; }
+  @keyframes fadeIn { from {opacity:0} to {opacity:1} }
+  
+  .photos {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 20px 0;
+  }
+  .photos img {
+    width: 31%;
+    border-radius: 15px;
+    object-fit: cover;
+    aspect-ratio: 1/1;
+  }
+  .big-photo img {
+    width: 90%;
+    border-radius: 20px;
+    margin: 15px 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  .heart { font-size: 60px; color: red; animation: beat 1s infinite; }
   @keyframes beat { 0%,100%{transform:scale(1)} 50%{transform:scale(1.3)} }
-  .final { font-size: 22px; color: #e91e63; font-weight: bold; }
+  .final { font-size: 24px; color: #ff4d88; font-weight: bold; margin-top: 10px; }
 </style>
 </head>
 <body>
@@ -62,58 +85,42 @@
   <!-- Screen 1: Password -->
   <div class="screen active" id="screen1">
     <h1>🔒 Enter Password</h1>
-    <p>Hint: 1126</p>
+    <p class="msg">Hint: 1126</p>
     <input type="password" id="password" placeholder="Password">
     <br>
     <button onclick="checkPassword()">Open</button>
     <p id="error" style="color:red; display:none;">Wrong Password!</p>
   </div>
 
-  <!-- Screen 2: Birthday Wish -->
+  <!-- Screen 2 to 7: Wishes -->
   <div class="screen" id="screen2">
     <h1>Happy Birthday 🎂</h1>
     <p class="msg">Aaj tumhara din hai... aur ye choti si surprise sirf tumhare liye ❤️</p>
     <button onclick="nextScreen(3)">Next</button>
   </div>
 
-  <!-- Screen 3 -->
-  <div class="screen" id="screen3">
-    <p class="msg">Tumhari smile duniya ki sabse khoobsurat cheez hai 😊</p>
-    <button onclick="nextScreen(4)">Next</button>
-  </div>
+  <div class="screen" id="screen3"><p class="msg">Tumhari smile duniya ki sabse khoobsurat cheez hai 😊</p><button onclick="nextScreen(4)">Next</button></div>
+  <div class="screen" id="screen4"><p class="msg">Har din tumhare saath ek nayi khushi lagta hai ✨</p><button onclick="nextScreen(5)">Next</button></div>
+  <div class="screen" id="screen5"><p class="msg">Tum special ho... bohot zyada special 💕</p><button onclick="nextScreen(6)">Next</button></div>
+  <div class="screen" id="screen6"><p class="msg">Main chahta hun ye saal tumhare liye sabse best ho 🎉</p><button onclick="nextScreen(7)">Next</button></div>
+  <div class="screen" id="screen7"><p class="msg">Toh chalo... aakhri sawal 👇</p><button onclick="nextScreen(8)">Next</button></div>
 
-  <!-- Screen 4 -->
-  <div class="screen" id="screen4">
-    <p class="msg">Har din tumhare saath ek nayi khushi lagta hai ✨</p>
-    <button onclick="nextScreen(5)">Next</button>
-  </div>
-
-  <!-- Screen 5 -->
-  <div class="screen" id="screen5">
-    <p class="msg">Tum special ho... bohot zyada special 💕</p>
-    <button onclick="nextScreen(6)">Next</button>
-  </div>
-
-  <!-- Screen 6 -->
-  <div class="screen" id="screen6">
-    <p class="msg">Main chahta hun ye saal tumhare liye sabse best ho 🎉</p>
-    <button onclick="nextScreen(7)">Next</button>
-  </div>
-
-  <!-- Screen 7 -->
-  <div class="screen" id="screen7">
-    <p class="msg">Toh chalo... aakhri sawal 👇</p>
-    <button onclick="nextScreen(8)">Next</button>
-  </div>
-
-  <!-- Screen 8: Final -->
+  <!-- Screen 8: FINAL - Video wala design -->
   <div class="screen" id="screen8">
-    <div class="msg">Will you be mine? 🥺</div>
+    <h1>Will you be mine? 🥺</h1>
+    
+    <!-- 3 CHOTI HAPPY BIRTHDAY PHOTOS -->
     <div class="photos">
-      <div style="font-size:60px">🐱</div>
-      <div style="font-size:60px">💕</div>
-      <div style="font-size:60px">🎂</div>
+      <img src="https://i.ibb.co/YBv0LQb8/birthday-cake1.jpg" alt="cake1">
+      <img src="https://i.ibb.co/0yK6sZkQ/birthday-balloon.jpg" alt="balloon">
+      <img src="https://i.ibb.co/1Y2Z8Xw9/birthday-gift.jpg" alt="gift">
     </div>
+
+    <!-- 1 BADI HAPPY BIRTHDAY PHOTO -->
+    <div class="big-photo">
+      <img src="https://i.ibb.co/5x2yQZkR/happy-birthday-cake.jpg" alt="Happy Birthday">
+    </div>
+
     <div class="heart">❤️</div>
     <div class="final">I Love You ❤️</div>
   </div>
@@ -122,11 +129,8 @@
 <script>
   function checkPassword() {
     let pass = document.getElementById("password").value;
-    if(pass === "1126") {
-      nextScreen(2);
-    } else {
-      document.getElementById("error").style.display = "block";
-    }
+    if(pass === "1126") { nextScreen(2); } 
+    else { document.getElementById("error").style.display = "block"; }
   }
   function nextScreen(n) {
     document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
