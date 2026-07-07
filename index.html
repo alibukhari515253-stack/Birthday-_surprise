@@ -26,7 +26,6 @@
 
 <canvas class="confetti" id="confetti"></canvas>
 
-<!-- GAANA -->
 <audio id="bgMusic" loop>
   <source src="https://pixeldrain.com/api/file/VqjnQ3SF?download" type="audio/mpeg">
 </audio>
@@ -39,6 +38,7 @@
     <p id="error" style="color:red; display:none;">Wrong Password!</p>
   </div>
 
+  <!-- 25 PAGES -->
   <div class="screen" id="screen2"><h1>Hey Bestie! 👋</h1><p class="msg">Aaj ka din bohot special hai...<br>Kyun? Chalo batati hun ❤️</p><button onclick="nextScreen(3)">Next</button></div>
   <div class="screen" id="screen3"><h1>Aaj... 🎂</h1><p class="msg">Aaj meri sabse pyari dost ka birthday hai!<br>Jo meri zindagi ki roshni hai ✨</p><button onclick="nextScreen(4)">Next</button></div>
   <div class="screen" id="screen4"><h1>Teri Smile 😊</h1><p class="msg">Teri smile dekh kar mera mood theek ho jata hai.<br>Tu hansti hai to lagta hai duniya haseen hai!</p><button onclick="nextScreen(5)">Next</button></div>
@@ -80,15 +80,10 @@
   function checkPassword() {
     let pass = document.getElementById("password").value;
     if(pass === correctPass) {
-      // PEHLE GAANA PLAY KARO PHIR SCREEN CHANGE
-      music.play().then(() => {
-        showConfetti();
-        setTimeout(() => nextScreen(2), 1000);
-      }).catch(() => {
-        // AGAR GAANA NA CHALE TO BHI AAGE JAO
-        showConfetti();
-        setTimeout(() => nextScreen(2), 1000);
-      });
+      showConfetti();
+      // PEHLE PAGE CHANGE KARO PHIR GAANA TRY KARO
+      setTimeout(() => nextScreen(2), 800);
+      music.play().catch(() => { console.log("Music blocked") });
     } else {
       document.getElementById("error").style.display = "block";
     }
