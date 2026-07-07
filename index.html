@@ -3,37 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday 🎂</title>
+<title>For You Only ❤️</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap');
   body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    background: linear-gradient(135deg, #ff9a9e, #fecfef);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding: 20px;
     overflow: hidden;
   }
   .container {
     background: white;
-    padding: 25px 20px;
+    padding: 30px 20px;
     border-radius: 25px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     text-align: center;
     width: 90%;
-    max-width: 380px;
-    animation: pop 1s ease;
+    max-width: 400px;
+    position: relative;
   }
-  @keyframes pop { from {transform:scale(0.8); opacity:0} to {transform:scale(1); opacity:1} }
   h1 { 
     font-family: 'Great Vibes', cursive;
     color: #ff4d88; 
-    font-size: 36px;
+    font-size: 32px;
     margin: 10px 0;
   }
-  .msg { font-size: 16px; color: #444; margin: 15px 0; line-height: 1.7; }
+  .msg { font-size: 17px; color: #444; margin: 20px 0; line-height: 1.8; }
+  input {
+    padding: 12px;
+    border: 2px solid #ff4d88;
+    border-radius: 12px;
+    width: 80%;
+    font-size: 16px;
+    text-align: center;
+  }
   button {
     margin-top: 15px;
     padding: 12px 25px;
@@ -44,64 +52,121 @@
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(255,77,136,0.3);
   }
   button:hover { background: #e03e75; transform: scale(1.05); }
   .screen { display: none; }
   .active { display: block; animation: fadeIn 0.8s; }
-  @keyframes fadeIn { from {opacity:0} to {opacity:1} }
-  .balloons { font-size: 40px; margin: 10px 0; }
-  .cake { font-size: 70px; margin: 15px 0; animation: bounce 1.5s infinite; }
-  @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
-  .heart { font-size: 50px; color: red; animation: beat 1s infinite; }
+  @keyframes fadeIn { from {opacity:0; transform:scale(0.9)} to {opacity:1; transform:scale(1)} }
+  .birthday-img img {
+    width: 90%;
+    border-radius: 20px;
+    margin: 15px 0;
+  }
+  .heart { font-size: 60px; color: red; animation: beat 1s infinite; }
   @keyframes beat { 0%,100%{transform:scale(1)} 50%{transform:scale(1.3)} }
+  .confetti {
+    position: fixed; top:0; left:0; width:100%; height:100%;
+    pointer-events:none; display:none; z-index:999;
+  }
 </style>
 </head>
 <body>
 
+<canvas class="confetti" id="confetti"></canvas>
+
 <div class="container">
-  <!-- Screen 1 -->
+  <!-- Screen 1: PASSWORD -->
   <div class="screen active" id="screen1">
-    <div class="balloons">🎈</div>
-    <h1>Happy Birthday!</h1>
-    <p class="msg">Aaj tumhara din hai ✨<br>Toh ye choti si surprise sirf tumhare liye ❤️</p>
-    <button onclick="nextScreen(2)">Click Me</button>
+    <h1>🔒 Enter Password</h1>
+    <input type="password" id="password" placeholder="Enter Password">
+    <br>
+    <button onclick="checkPassword()">Open</button>
+    <p id="error" style="color:red; display:none; margin-top:10px;">Wrong Password!</p>
   </div>
 
-  <!-- Screen 2 -->
-  <div class="screen" id="screen2">
-    <h1>Wish #1 🎁</h1>
-    <p class="msg">Tumhari smile hamesha aise hi chamakti rahe 😊<br>Tum duniya ki sabse khoobsurat ho!</p>
-    <button onclick="nextScreen(3)">Next</button>
-  </div>
+  <!-- Screen 2 to 15: WISHES + TAREEF -->
+  <div class="screen" id="screen2"><h1>Hey You! 👋</h1><p class="msg">Aaj ka din bohot special hai... pata hai kyun? ❤️</p><button onclick="nextScreen(3)">Next</button></div>
+  
+  <div class="screen" id="screen3"><h1>Because... 🎂</h1><p class="msg">Aaj tum is duniya mein aayi thi!<br>Aur duniya ko khoobsurat bana diya tha ✨</p><button onclick="nextScreen(4)">Next</button></div>
 
-  <!-- Screen 3 -->
-  <div class="screen" id="screen3">
-    <h1>Wish #2 🌟</h1>
-    <p class="msg">Tumhari har dua, har khwahish poori ho 💫<br>Ye saal tumhare liye sabse best ho!</p>
-    <button onclick="nextScreen(4)">Next</button>
-  </div>
+  <div class="screen" id="screen4"><h1>Tumhari Smile 😊</h1><p class="msg">Tumhari smile dekh kar mera din ban jata hai.<br>Itni pyari smile sirf tumhari hi ho sakti hai!</p><button onclick="nextScreen(5)">Next</button></div>
 
-  <!-- Screen 4 -->
-  <div class="screen" id="screen4">
-    <h1>Wish #3 💕</h1>
-    <p class="msg">Tum jaisi dost har kisi ko mile ❤️<br>Thank you mere saath hone ke liye!</p>
-    <button onclick="nextScreen(5)">Last One</button>
-  </div>
+  <div class="screen" id="screen5"><h1>Tumhari Aankhein 👀</h1><p class="msg">Tumhari aankhon mein ajeeb sa sukoon hai.<br>Jaise sab tension khatam ho jaye.</p><button onclick="nextScreen(6)">Next</button></div>
 
-  <!-- Screen 5: Final -->
-  <div class="screen" id="screen5">
-    <div class="cake">🎂</div>
-    <h1>I Love You</h1>
-    <p class="msg">Happy Birthday meri jaan 🥺❤️<br>Tum bohot special ho!</p>
+  <div class="screen" id="screen6"><h1>Tumhara Dil ❤️</h1><p class="msg">Tumhara dil sona hai.<br>Itni care karti ho sabki. I love that about you!</p><button onclick="nextScreen(7)">Next</button></div>
+
+  <div class="screen" id="screen7"><h1>Tumhari Baatein 💬</h1><p class="msg">Tumse baat karke time ka pata hi nahi chalta.<br>Har baat yaad reh jati hai.</p><button onclick="nextScreen(8)">Next</button></div>
+
+  <div class="screen" id="screen8"><h1>Tum Special Ho 🌟</h1><p class="msg">100 mein se 1 hoti ho tum.<br>Bilkul unique aur amazing!</p><button onclick="nextScreen(9)">Next</button></div>
+
+  <div class="screen" id="screen9"><h1>Wish #1 🎁</h1><p class="msg">Allah tumhe dher saari khushiyan de.<br>Jo tum chaho wo sab mile!</p><button onclick="nextScreen(10)">Next</button></div>
+
+  <div class="screen" id="screen10"><h1>Wish #2 🎈</h1><p class="msg">Tumhari har dua qabool ho.<br>Har mushkil aasan ho jaye!</p><button onclick="nextScreen(11)">Next</button></div>
+
+  <div class="screen" id="screen11"><h1>Wish #3 🌹</h1><p class="msg">Tum hamesha aise hi hasti raho.<br>Tumhari hansi sabse pyari hai!</p><button onclick="nextScreen(12)">Next</button></div>
+
+  <div class="screen" id="screen12"><h1>Thank You 💕</h1><p class="msg">Meri life mein aane ke liye shukriya.<br>Tumne sab kuch behtar bana diya!</p><button onclick="nextScreen(13)">Next</button></div>
+
+  <div class="screen" id="screen13"><h1>Ek Baat Kahun? 🥺</h1><p class="msg">Tum bohot important ho mere liye.<br>Bohot zyada!</p><button onclick="nextScreen(14)">Next</button></div>
+
+  <div class="screen" id="screen14"><h1>Almost There... 🎉</h1><p class="msg">Bas 2 pages aur... phir sabse important baat!</p><button onclick="nextScreen(15)">Next</button></div>
+
+  <div class="screen" id="screen15"><h1>Ready? ❤️</h1><p class="msg">Saans roko... ye aakhri message hai!</p><button onclick="nextScreen(16)">Click</button></div>
+
+  <!-- Screen 16: FINAL -->
+  <div class="screen" id="screen16">
+    <h1>Happy Birthday! 🎂</h1>
+    
+    <div class="birthday-img">
+      <img src="https://i.ibb.co/5x2yQZkR/happy-birthday-cake.jpg" alt="Happy Birthday">
+    </div>
+
+    <p class="msg">I Love You ❤️<br>Tum mere liye sabse khaas ho!</p>
     <div class="heart">❤️</div>
   </div>
 </div>
 
 <script>
+  const correctPass = "1126"; // <-- YAHAN APNA PASSWORD DAL DO
+
+  function checkPassword() {
+    let pass = document.getElementById("password").value;
+    if(pass === correctPass) {
+      showConfetti(); // Party popper effect
+      setTimeout(() => nextScreen(2), 1500);
+    } else {
+      document.getElementById("error").style.display = "block";
+    }
+  }
+
   function nextScreen(n) {
     document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
     document.getElementById("screen" + n).classList.add("active");
+  }
+
+  // PARTY POPPER EFFECT
+  function showConfetti() {
+    const canvas = document.getElementById('confetti');
+    canvas.style.display = 'block';
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    let pieces = [];
+    for(let i=0; i<150; i++){
+      pieces.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height-100, r:Math.random()*4+1, d:Math.random()*10})
+    }
+    function draw(){
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      pieces.forEach(p=>{
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+        ctx.fillStyle = `hsl(${Math.random()*360},100%,50%)`;
+        ctx.fill();
+        p.y += 3;
+      })
+    }
+    let anim = setInterval(draw, 20);
+    setTimeout(()=>{clearInterval(anim); canvas.style.display='none'}, 3000);
   }
 </script>
 
