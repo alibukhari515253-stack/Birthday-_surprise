@@ -66,7 +66,7 @@
   <div class="screen" id="screen25">
     <h1>Happy Birthday Bestie! 🎂</h1>
     <div class="birthday-img">
-      <img src="https://i.ibb.co/rKtRw3WN/photo.jpg" alt="Birthday Cake">
+      <img src="https://pixeldrain.com/api/file/385L2EUo?download" alt="Birthday Photo">
     </div>
     <p class="msg">I Love You ❤️<br>Tu mere liye sabse khaas hai!</p>
     <div class="heart">❤️</div>
@@ -74,14 +74,13 @@
 </div>
 
 <script>
-  const correctPass = "1126"; 
+  const correctPass = "0110"; 
   const music = document.getElementById("bgMusic");
 
   function checkPassword() {
     let pass = document.getElementById("password").value;
     if(pass === correctPass) {
       showConfetti();
-      // PEHLE PAGE CHANGE KARO PHIR GAANA TRY KARO
       setTimeout(() => nextScreen(2), 800);
       music.play().catch(() => { console.log("Music blocked") });
     } else {
