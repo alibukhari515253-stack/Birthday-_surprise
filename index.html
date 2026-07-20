@@ -12,15 +12,14 @@
   h1 { font-family: 'Dancing Script', cursive;color:#e91e63; font-size:32px;margin:10px 0;}
   .msg { font-size:18px; color:#333; margin:20px 0; line-height:2.2; }
   .shayari { font-style: italic; color:#e91e63; font-weight:700; font-size:20px;}
-  .name { color:#e91e63; font-weight:700; font-size:24px; text-shadow: 0 0 10px #fecfef;}
+  .name { color:#e91e63; font-weight:700; font-size:22px;}
   img {width:100%; border-radius:20px; margin:15px 0; box-shadow:0 5px 15px rgba(0,0,0,0.1); max-height:300px; object-fit:cover;}
   input {padding:14px;border:2px solid #e91e63;border-radius:15px;width:80%;font-size:16px;text-align:center;outline:none;}
   button {margin-top:18px;padding:14px 30px;background:linear-gradient(135deg,#ff9a9e,#e91e63);color:white;border:none;border-radius:20px;font-size:17px;font-weight:600;cursor:pointer;}
   .screen { display:none; }
   .active { display:block; animation:fadeIn 0.9s; }
   @keyframes fadeIn { from {opacity:0; transform:scale(0.9)} to {opacity:1; transform:scale(1)} }
-  .crown { font-size:50px; animation:float 2s ease-in-out infinite; }
-  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+  .crown { font-size:50px; }
   .heart {color:red; font-size:24px;}
 </style>
 </head>
@@ -31,20 +30,20 @@
 </audio>
 
 <div class="container">
-  <!-- 1. Password Screen - Yahan password nahi likha -->
+  <!-- 1. Password Screen -->
   <div class="screen active" id="screen1">
     <h1>🔐 For Alina Only</h1>
-    <p class="msg">Yeh surprise sirf <span class="name">Alina</span> ke liye hai...<br>Enter password to unlock ❤️</p>
+    <p class="msg">Yeh sirf <span class="name">Alina</span> ke liye hai...<br>Enter password to unlock ❤️</p>
     <input type="password" id="password" placeholder="Enter Password">
     <br><button onclick="checkPassword()">Unlock</button>
     <p id="error" style="color:red; display:none;">Wrong Password!</p>
   </div>
 
   <!-- 2 -->
-  <div class="screen" id="screen2"><div class="crown">👑</div><h1>Happy Birthday</h1><p class="msg">Aaj <span class="name">Alina</span> ka din hai<br>Is din se khaas din koi nahi <span class="heart">❤️</span></p><button onclick="nextScreen(3)">Next</button></div>
+  <div class="screen" id="screen2"><div class="crown">👑</div><h1>Happy Birthday</h1><p class="msg">Aaj meri sab se pyari dost <span class="name">Alina</span> ka din hai <span class="heart">❤️</span></p><button onclick="nextScreen(3)">Next</button></div>
 
-  <!-- 3 PIC1 + ALINA SHAYARI -->
-  <div class="screen" id="screen3"><h1><span class="name">Alina</span></h1><img src="https://pixeldrain.com/api/file/8j8qddpB/download"><p class="msg shayari">"Alina naam hai uska<br>Jiske naam se roshan hai duniya"</p><button onclick="nextScreen(4)">Next</button></div>
+  <!-- 3 PIC1 -->
+  <div class="screen" id="screen3"><h1>My Alina</h1><img src="https://pixeldrain.com/api/file/8j8qddpB/download"><p class="msg shayari">"Tum jaisi dost mil jaye to<br>Zindagi jannat lagne lagti hai"</p><button onclick="nextScreen(4)">Next</button></div>
 
   <!-- 4 -->
   <div class="screen" id="screen4"><h1>Dua for you</h1><p class="msg">Allah kare <span class="name">Alina</span> tumhari har dua qabool ho<br>And har khushi tumhara muqaddar bane</p><button onclick="nextScreen(5)">Next</button></div>
@@ -55,12 +54,103 @@
   <!-- 6 -->
   <div class="screen" id="screen6"><h1>Bestie</h1><p class="msg">Thank you for being my best friend <span class="name">Alina</span><br>I love you so much yaar</p><button onclick="nextScreen(7)">Next</button></div>
 
-  <!-- 7 PIC3 + ALINA SHAYARI -->
-  <div class="screen" id="screen7"><h1>Tumhare liye</h1><img src="https://pixeldrain.com/api/file/LAzWdH78/download"><p class="msg shayari">"<span class="name">Alina</span> tum ho to lagta hai<br>Zindagi kitni haseen hai"</p><button onclick="nextScreen(8)">Next</button></div>
+  <!-- 7 PIC3 -->
+  <div class="screen" id="screen7"><h1>Tumhare liye</h1><img src="https://pixeldrain.com/api/file/LAzWdH78/download"><p class="msg shayari">"Tumhari dosti <span class="name">Alina</span><br>Meri sab se bari taqat hai"</p><button onclick="nextScreen(8)">Next</button></div>
 
-  <!-- 8 to 38 ... beech ke pages same pattern -->
+  <!-- 8 -->
+  <div class="screen" id="screen8"><h1>You are Special</h1><p class="msg">You deserve all the happiness <span class="name">Alina</span><br>Tum duniya ki sab se achi ho</p><button onclick="nextScreen(9)">Next</button></div>
 
-  <!-- 39 PIC1 + ALINA SHAYARI -->
+  <!-- 9 PIC1 -->
+  <div class="screen" id="screen9"><h1>Dosti</h1><img src="https://pixeldrain.com/api/file/8j8qddpB/download"><p class="msg shayari">"<span class="name">Alina</span> tum jaisi dost<br>Khuda ki nemat hai"</p><button onclick="nextScreen(10)">Next</button></div>
+
+  <!-- 10 -->
+  <div class="screen" id="screen10"><h1>Another Year</h1><p class="msg">Another year of being amazing <span class="name">Alina</span><br>Proud of you always</p><button onclick="nextScreen(11)">Next</button></div>
+
+  <!-- 11 PIC2 -->
+  <div class="screen" id="screen11"><h1>Tumhari Baatein</h1><img src="https://pixeldrain.com/api/file/ZajURS3A/download"><p class="msg shayari">"<span class="name">Alina</span> tumhari har baat<br>Dil ko lagti hai"</p><button onclick="nextScreen(12)">Next</button></div>
+
+  <!-- 12 -->
+  <div class="screen" id="screen12"><h1>Birthday Wish</h1><p class="msg">May your life be as beautiful as your smile <span class="name">Alina</span></p><button onclick="nextScreen(13)">Next</button></div>
+
+  <!-- 13 PIC3 -->
+  <div class="screen" id="screen13"><h1>Pyaar</h1><img src="https://pixeldrain.com/api/file/LAzWdH78/download"><p class="msg shayari">"<span class="name">Alina</span> tum se mil kar laga<br>Zindagi mil gayi"</p><button onclick="nextScreen(14)">Next</button></div>
+
+  <!-- 14 -->
+  <div class="screen" id="screen14"><h1>Shine Bright</h1><p class="msg">Shine bright like the star you are <span class="name">Alina</span> ✨</p><button onclick="nextScreen(15)">Next</button></div>
+
+  <!-- 15 PIC1 -->
+  <div class="screen" id="screen15"><h1>Yaad</h1><img src="https://pixeldrain.com/api/file/8j8qddpB/download"><p class="msg shayari">"<span class="name">Alina</span> tumhari yaadon mein hi<br>Meri duniya basti hai"</p><button onclick="nextScreen(16)">Next</button></div>
+
+  <!-- 16 -->
+  <div class="screen" id="screen16"><h1>Hope & Joy</h1><p class="msg">Hope this year brings you more love <span class="name">Alina</span></p><button onclick="nextScreen(17)">Next</button></div>
+
+  <!-- 17 PIC2 -->
+  <div class="screen" id="screen17"><h1>Khoobsurti</h1><img src="https://pixeldrain.com/api/file/ZajURS3A/download"><p class="msg shayari">"<span class="name">Alina</span> tumhari aankhon mein<br>Chand bhi sharma jaye"</p><button onclick="nextScreen(18)">Next</button></div>
+
+  <!-- 18 -->
+  <div class="screen" id="screen18"><h1>You Matter</h1><p class="msg">You make every day brighter <span class="name">Alina</span></p><button onclick="nextScreen(19)">Next</button></div>
+
+  <!-- 19 PIC3 -->
+  <div class="screen" id="screen19"><h1>Nazuk Rishta</h1><img src="https://pixeldrain.com/api/file/LAzWdH78/download"><p class="msg shayari">"<span class="name">Alina</span> tum meri best friend<br>Or sab se pyari ho"</p><button onclick="nextScreen(20)">Next</button></div>
+
+  <!-- 20 -->
+  <div class="screen" id="screen20"><h1>Keep Smiling</h1><p class="msg">Keep smiling, keep shining <span class="name">Alina</span> 😊</p><button onclick="nextScreen(21)">Next</button></div>
+
+  <!-- 21 PIC1 -->
+  <div class="screen" id="screen21"><h1>Mohabbat</h1><img src="https://pixeldrain.com/api/file/8j8qddpB/download"><p class="msg shayari">"<span class="name">Alina</span> tum se mohabbat hai<br>Be-hisab be-misaal"</p><button onclick="nextScreen(22)">Next</button></div>
+
+  <!-- 22 -->
+  <div class="screen" id="screen22"><h1>Favorite</h1><p class="msg">You are my favorite person <span class="name">Alina</span></p><button onclick="nextScreen(23)">Next</button></div>
+
+  <!-- 23 PIC2 -->
+  <div class="screen" id="screen23"><h1>Khushi</h1><img src="https://pixeldrain.com/api/file/ZajURS3A/download"><p class="msg shayari">"<span class="name">Alina</span> tumhare saath har lamha<br>Khoobsurat ban jata hai"</p><button onclick="nextScreen(24)">Next</button></div>
+
+  <!-- 24 -->
+  <div class="screen" id="screen24"><h1>Thank You</h1><p class="msg">Thank you for being you <span class="name">Alina</span></p><button onclick="nextScreen(25)">Next</button></div>
+
+  <!-- 25 PIC3 -->
+  <div class="screen" id="screen25"><h1>Dua</h1><img src="https://pixeldrain.com/api/file/LAzWdH78/download"><p class="msg shayari">"Allah <span class="name">Alina</span> tumhein<br>Hamesha khush rakhe"</p><button onclick="nextScreen(26)">Next</button></div>
+
+  <!-- 26 -->
+  <div class="screen" id="screen26"><h1>Virtual Hug</h1><p class="msg">Sending you a big virtual hug <span class="heart">🤗</span><br>I miss you <span class="name">Alina</span></p><button onclick="nextScreen(27)">Next</button></div>
+
+  <!-- 27 PIC1 -->
+  <div class="screen" id="screen27"><h1>Forever</h1><img src="https://pixeldrain.com/api/file/8j8qddpB/download"><p class="msg">Will you be my bestie forever <span class="name">Alina</span> <span class="heart">❤️</span></p><button onclick="nextScreen(28)">Next</button></div>
+
+  <!-- 28 -->
+  <div class="screen" id="screen28"><h1>Last Wish</h1><p class="msg">May we celebrate all your birthdays together <span class="name">Alina</span></p><button onclick="nextScreen(29)">Next</button></div>
+
+  <!-- 29 PIC2 -->
+  <div class="screen" id="screen29"><h1>Tum Anmol Ho</h1><img src="https://pixeldrain.com/api/file/ZajURS3A/download"><p class="msg shayari">"<span class="name">Alina</span> tum anmol ho<br>Tum jaisa koi nahi"</p><button onclick="nextScreen(30)">Next</button></div>
+
+  <!-- 30 -->
+  <div class="screen" id="screen30"><h1>Birthday Girl</h1><p class="msg">Today is all about you <span class="name">Alina</span> 🎉</p><button onclick="nextScreen(31)">Next</button></div>
+
+  <!-- 31 PIC3 -->
+  <div class="screen" id="screen31"><h1>Chamak</h1><img src="https://pixeldrain.com/api/file/LAzWdH78/download"><p class="msg shayari">"<span class="name">Alina</span> tum chaand ka tukda ho<br>Tum se roshni hai"</p><button onclick="nextScreen(32)">Next</button></div>
+
+  <!-- 32 -->
+  <div class="screen" id="screen32"><h1>Blessed</h1><p class="msg">I am blessed to know you <span class="name">Alina</span></p><button onclick="nextScreen(33)">Next</button></div>
+
+  <!-- 33 PIC1 -->
+  <div class="screen" id="screen33"><h1>Khwahish</h1><img src="https://pixeldrain.com/api/file/8j8qddpB/download"><p class="msg shayari">"<span class="name">Alina</span> meri dua hai<br>Tumhari har khwahish poori ho"</p><button onclick="nextScreen(34)">Next</button></div>
+
+  <!-- 34 -->
+  <div class="screen" id="screen34"><h1>Queen</h1><p class="msg">You are my queen <span class="name">Alina</span> 👑</p><button onclick="nextScreen(35)">Next</button></div>
+
+  <!-- 35 PIC2 -->
+  <div class="screen" id="screen35"><h1>Sukoon</h1><img src="https://pixeldrain.com/api/file/ZajURS3A/download"><p class="msg shayari">"<span class="name">Alina</span> tumhara naam sun kar<br>Dil ko sukoon aa jata hai"</p><button onclick="nextScreen(36)">Next</button></div>
+
+  <!-- 36 -->
+  <div class="screen" id="screen36"><h1>Celebration</h1><p class="msg">Let's celebrate you today <span class="name">Alina</span> 🎂</p><button onclick="nextScreen(37)">Next</button></div>
+
+  <!-- 37 PIC3 -->
+  <div class="screen" id="screen37"><h1>Mohabbat Nama</h1><img src="https://pixeldrain.com/api/file/LAzWdH78/download"><p class="msg shayari">"<span class="name">Alina</span> tum meri kahani ho<br>Tum meri zindagi ho"</p><button onclick="nextScreen(38)">Next</button></div>
+
+  <!-- 38 -->
+  <div class="screen" id="screen38"><h1>Almost Done</h1><p class="msg">Get ready for the final surprise <span class="name">Alina</span></p><button onclick="nextScreen(39)">Next</button></div>
+
+  <!-- 39 PIC1 -->
   <div class="screen" id="screen39"><h1>Last Message</h1><img src="https://pixeldrain.com/api/file/8j8qddpB/download"><p class="msg shayari">"<span class="name">Alina</span> tum duniya ki<br>Sab se khoobsurat tohfa ho"</p><button onclick="nextScreen(40)">Last Page</button></div>
 
   <!-- 40 -->
@@ -73,22 +163,17 @@
 </div>
 
 <script>
-  const correctPass = "0010"; // <-- YE PASSWORD HAI. YEH CODE MEIN HIDE HAI. SCREEN PE NAHI DIKHE GA
-  
+  const correctPass = "0010"; // Password yahan hai, show nahi hoga
   const music = document.getElementById("bgMusic");
-  
   function checkPassword() {
     let pass = document.getElementById("password").value;
     if(pass === correctPass) { 
-      music.play().catch(()=>{ alert("Tap anywhere to start music 🎵"); });
+      music.play().catch(()=>{}); 
       nextScreen(2); 
     } else { 
       document.getElementById("error").style.display = "block"; 
     }
   }
-  
-  document.addEventListener('click', () => { music.play().catch(()=>{}); }, {once: true});
-
   function nextScreen(n) {
     document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
     document.getElementById("screen" + n).classList.add("active");
