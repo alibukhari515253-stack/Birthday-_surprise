@@ -3,25 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Alina 👑</title>
+<title>For My Alina 👑</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
   *{box-sizing:border-box;}
   body {margin:0;font-family:'Noto Nastaliq Urdu', serif;background: linear-gradient(135deg, #ff9a9e, #fecfef);display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px;}
-  .container {background:white;padding:30px 25px;border-radius:30px;box-shadow:0 15px 40px rgba(0,0,0,0.2);text-align:center;width:90%;max-width:450px;}
+  .container {background:white;padding:30px 25px;border-radius:30px;box-shadow:0 15px 40px rgba(0,0,0,0.2);text-align:center;width:90%;max-width:450px;min-height:500px;}
   h1 { font-family: 'Dancing Script', cursive;color:#e91e63; font-size:32px;margin:10px 0;}
   .msg { font-size:18px; color:#333; margin:20px 0; line-height:2.2; }
   .shayari { font-style: italic; color:#e91e63; font-weight:700; font-size:20px;}
   .name { color:#e91e63; font-weight:700; font-size:22px;}
-  img {width:100%; border-radius:20px; margin:15px 0; box-shadow:0 5px 15px rgba(0,0,0,0.1);}
+  img {width:100%; border-radius:20px; margin:15px 0; box-shadow:0 5px 15px rgba(0,0,0,0.1); max-height:300px; object-fit:cover;}
   input {padding:14px;border:2px solid #e91e63;border-radius:15px;width:80%;font-size:16px;text-align:center;outline:none;}
-  button {margin-top:18px;padding:14px 30px;background:linear-gradient(135deg,#ff9a9e,#e91e63);color:white;border:none;border-radius:20px;font-size:17px;font-weight:600;cursor:pointer;transition:0.3s;}
-  button:active { transform:scale(0.95); }
+  button {margin-top:18px;padding:14px 30px;background:linear-gradient(135deg,#ff9a9e,#e91e63);color:white;border:none;border-radius:20px;font-size:17px;font-weight:600;cursor:pointer;}
   .screen { display:none; }
   .active { display:block; animation:fadeIn 0.9s; }
   @keyframes fadeIn { from {opacity:0; transform:scale(0.9)} to {opacity:1; transform:scale(1)} }
-  .crown { font-size:50px; animation:float 2s ease-in-out infinite; }
-  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+  .crown { font-size:50px; }
   .heart {color:red; font-size:24px;}
 </style>
 </head>
@@ -32,207 +30,133 @@
 </audio>
 
 <div class="container">
+  <!-- 1. Password -->
   <div class="screen active" id="screen1">
-    <h1>🔐 Alina ke liye</h1>
-    <p class="msg">یہ صرف <span class="name">Alina</span> کے لیے ہے...<br>پاسورڈ ڈال کر کھولو</p>
+    <h1>🔐 میری Alina کے لیے</h1>
+    <p class="msg">یہ سرپرائز صرف تمہارے لیے ہے <span class="name">Alina</span><br>پاسورڈ ڈالو: `0010`</p>
     <input type="password" id="password" placeholder="Enter Password">
     <br><button onclick="checkPassword()">Unlock</button>
-    <p id="error" style="color:red; display:none;margin-top:10px;">غلط پاسورڈ!</p>
+    <p id="error" style="color:red; display:none;">غلط پاسورڈ!</p>
   </div>
 
-  <div class="screen" id="screen2"><div class="crown">👑</div><h1>آج کا دن</h1><p class="msg">آج <span class="name">Alina</span> کا جنم دن ہے<br>یہ دن سب سے خاص ہے <span class="heart">❤️</span></p><button onclick="nextScreen(3)">آگے</button></div>
+  <!-- 2 -->
+  <div class="screen" id="screen2"><div class="crown">👑</div><h1>Happy Birthday</h1><p class="msg">آج میری سب سے پیاری دوست <span class="name">Alina</span> کا دن ہے <span class="heart">❤️</span></p><button onclick="nextScreen(3)">آگے</button></div>
 
-  <!-- پیج 3 - PIC 1 -->
-  <div class="screen" id="screen3">
-    <h1><span class="name">Alina</span></h1>
-    <img src="https://pixeldrain.com/api/file/8j8qddpB/download" alt="Pic1"> 
-    <p class="msg shayari">"تمہارا نام ہی کافی ہے<br>دنیا حسین لگنے کے لیے"</p>
-    <button onclick="nextScreen(4)">آگے</button>
-  </div>
+  <!-- 3 PIC1 -->
+  <div class="screen" id="screen3"><h1>میری Alina</h1><img src="https://pixeldrain.com/api/file/8j8qddpB/download"><p class="msg shayari">"تم جیسی دوست مل جائے تو<br>زندگی جنت لگنے لگتی ہے"</p><button onclick="nextScreen(4)">آگے</button></div>
 
-  <div class="screen" id="screen4"><h1>خوبصورت دعا</h1><p class="msg"><span class="name">Alina</span> اللہ کرے تمہاری زندگی<br>خوشیوں سے بھر جائے</p><button onclick="nextScreen(5)">آگے</button></div>
+  <!-- 4 -->
+  <div class="screen" id="screen4"><h1>دعا</h1><p class="msg">اللہ کرے <span class="name">Alina</span> تمہاری ہر دعا قبول ہو<br>اور ہر خوشی تمہارا مقدر بنے</p><button onclick="nextScreen(5)">آگے</button></div>
 
-  <!-- پیج 5 - PIC 2 -->
-  <div class="screen" id="screen5">
-    <h1>میری شہزادی</h1>
-    <img src="https://pixeldrain.com/api/file/ZajURS3A/download" alt="Pic2"> 
-    <p class="msg shayari">"<span class="name">Alina</span> تم ہنستی ہو تو لگتا ہے<br>بہار آ گئی ہے"</p>
-    <button onclick="nextScreen(6)">آگے</button>
-  </div>
+  <!-- 5 PIC2 -->
+  <div class="screen" id="screen5"><h1>میری شہزادی</h1><img src="https://pixeldrain.com/api/file/ZajURS3A/download"><p class="msg shayari">"<span class="name">Alina</span> تم ہنستی ہو تو لگتا ہے<br>میرے دل کو سکون آ گیا"</p><button onclick="nextScreen(6)">آگے</button></div>
 
-  <div class="screen" id="screen6"><h1>Happy Birthday</h1><p class="msg">Happy Birthday <span class="name">Alina</span><br>May all your dreams come true</p><button onclick="nextScreen(7)">آگے</button></div>
+  <!-- 6 -->
+  <div class="screen" id="screen6"><h1>Bestie</h1><p class="msg">Thank you for being my best friend <span class="name">Alina</span><br>I love you so much</p><button onclick="nextScreen(7)">آگے</button></div>
 
-  <!-- پیج 7 - PIC 3 -->
-  <div class="screen" id="screen7">
-    <h1>تمہارے لیے</h1>
-    <img src="https://pixeldrain.com/api/file/LAzWdH78/download" alt="Pic3"> 
-    <p class="msg shayari">"تمہاری مسکراہٹ <span class="name">Alina</span><br>میری عید ہے"</p>
-    <button onclick="nextScreen(8)">آگے</button>
-  </div>
+  <!-- 7 PIC3 -->
+  <div class="screen" id="screen7"><h1>تمہارے لیے</h1><img src="https://pixeldrain.com/api/file/LAzWdH78/download"><p class="msg shayari">"تمہاری دوستی <span class="name">Alina</span><br>میری سب سے بڑی طاقت ہے"</p><button onclick="nextScreen(8)">آگے</button></div>
 
-  <div class="screen" id="screen8"><h1>تم خاص ہو</h1><p class="msg">You deserve all the happiness <span class="name">Alina</span></p><button onclick="nextScreen(9)">آگے</button></div>
-  
-  <!-- پیج 9 - PIC 1 REPEAT -->
-  <div class="screen" id="screen9">
-    <h1>دوستی</h1>
-    <img src="https://pixeldrain.com/api/file/8j8qddpB/download" alt="Pic1"> 
-    <p class="msg shayari">"<span class="name">Alina</span> تم جیسی دوست<br>خدا کی نعمت ہے"</p>
-    <button onclick="nextScreen(10)">آگے</button>
-  </div>
+  <!-- 8 -->
+  <div class="screen" id="screen8"><h1>تم خاص ہو</h1><p class="msg">You deserve all the happiness <span class="name">Alina</span><br>تم دنیا کی سب سے اچھی ہو</p><button onclick="nextScreen(9)">آگے</button></div>
 
-  <div class="screen" id="screen10"><h1>Another Year</h1><p class="msg">Another year of being amazing <span class="name">Alina</span></p><button onclick="nextScreen(11)">آگے</button></div>
+  <!-- 9 PIC1 -->
+  <div class="screen" id="screen9"><h1>دوستی</h1><img src="https://pixeldrain.com/api/file/8j8qddpB/download"><p class="msg shayari">"<span class="name">Alina</span> تم جیسی دوست<br>خدا کی نعمت ہے"</p><button onclick="nextScreen(10)">آگے</button></div>
 
-  <!-- پیج 11 - PIC 2 REPEAT -->
-  <div class="screen" id="screen11">
-    <h1>تمہاری باتیں</h1>
-    <img src="https://pixeldrain.com/api/file/ZajURS3A/download" alt="Pic2"> 
-    <p class="msg shayari">"<span class="name">Alina</span> تمہاری ہر بات<br>دل کو لگتی ہے"</p>
-    <button onclick="nextScreen(12)">آگے</button>
-  </div>
+  <!-- 10 -->
+  <div class="screen" id="screen10"><h1>Another Year</h1><p class="msg">Another year of being amazing <span class="name">Alina</span><br>Proud of you</p><button onclick="nextScreen(11)">آگے</button></div>
 
+  <!-- 11 PIC2 -->
+  <div class="screen" id="screen11"><h1>تمہاری باتیں</h1><img src="https://pixeldrain.com/api/file/ZajURS3A/download"><p class="msg shayari">"<span class="name">Alina</span> تمہاری ہر بات<br>دل کو لگتی ہے"</p><button onclick="nextScreen(12)">آگے</button></div>
+
+  <!-- 12 -->
   <div class="screen" id="screen12"><h1>Birthday Wish</h1><p class="msg">May your life be as beautiful as your smile <span class="name">Alina</span></p><button onclick="nextScreen(13)">آگے</button></div>
 
-  <!-- پیج 13 - PIC 3 REPEAT -->
-  <div class="screen" id="screen13">
-    <h1>پیار</h1>
-    <img src="https://pixeldrain.com/api/file/LAzWdH78/download" alt="Pic3"> 
-    <p class="msg shayari">"<span class="name">Alina</span> تم سے مل کر لگا<br>زندگی مل گئی"</p>
-    <button onclick="nextScreen(14)">آگے</button>
-  </div>
+  <!-- 13 PIC3 -->
+  <div class="screen" id="screen13"><h1>پیار</h1><img src="https://pixeldrain.com/api/file/LAzWdH78/download"><p class="msg shayari">"<span class="name">Alina</span> تم سے مل کر لگا<br>زندگی مل گئی"</p><button onclick="nextScreen(14)">آگے</button></div>
 
-  <div class="screen" id="screen14"><h1>Shine Bright</h1><p class="msg">Shine bright like the star you are <span class="name">Alina</span></p><button onclick="nextScreen(15)">آگے</button></div>
+  <!-- 14 -->
+  <div class="screen" id="screen14"><h1>Shine Bright</h1><p class="msg">Shine bright like the star you are <span class="name">Alina</span> ✨</p><button onclick="nextScreen(15)">آگے</button></div>
 
-  <!-- پیج 15 - PIC 1 REPEAT -->
-  <div class="screen" id="screen15">
-    <h1>یاد</h1>
-    <img src="https://pixeldrain.com/api/file/8j8qddpB/download" alt="Pic1"> 
-    <p class="msg shayari">"<span class="name">Alina</span> تمہاری یادوں میں ہی<br>میری دنیا بستی ہے"</p>
-    <button onclick="nextScreen(16)">آگے</button>
-  </div>
+  <!-- 15 PIC1 -->
+  <div class="screen" id="screen15"><h1>یاد</h1><img src="https://pixeldrain.com/api/file/8j8qddpB/download"><p class="msg shayari">"<span class="name">Alina</span> تمہاری یادوں میں ہی<br>میری دنیا بستی ہے"</p><button onclick="nextScreen(16)">آگے</button></div>
 
+  <!-- 16 -->
   <div class="screen" id="screen16"><h1>Hope & Joy</h1><p class="msg">Hope this year brings you more love <span class="name">Alina</span></p><button onclick="nextScreen(17)">آگے</button></div>
 
-  <!-- پیج 17 - PIC 2 REPEAT -->
-  <div class="screen" id="screen17">
-    <h1>خوبصورتی</h1>
-    <img src="https://pixeldrain.com/api/file/ZajURS3A/download" alt="Pic2"> 
-    <p class="msg shayari">"<span class="name">Alina</span> تمہاری آنکھوں میں<br>چاند بھی شرما جائے"</p>
-    <button onclick="nextScreen(18)">آگے</button>
-  </div>
+  <!-- 17 PIC2 -->
+  <div class="screen" id="screen17"><h1>خوبصورتی</h1><img src="https://pixeldrain.com/api/file/ZajURS3A/download"><p class="msg shayari">"<span class="name">Alina</span> تمہاری آنکھوں میں<br>چاند بھی شرما جائے"</p><button onclick="nextScreen(18)">آگے</button></div>
 
+  <!-- 18 -->
   <div class="screen" id="screen18"><h1>You Matter</h1><p class="msg">You make every day brighter <span class="name">Alina</span></p><button onclick="nextScreen(19)">آگے</button></div>
 
-  <!-- پیج 19 - PIC 3 REPEAT -->
-  <div class="screen" id="screen19">
-    <h1>نازک رشتہ</h1>
-    <img src="https://pixeldrain.com/api/file/LAzWdH78/download" alt="Pic3"> 
-    <p class="msg shayari">"<span class="name">Alina</span> تم میری بہترین دوست<br>اور سب سے پیاری ہو"</p>
-    <button onclick="nextScreen(20)">آگے</button>
-  </div>
+  <!-- 19 PIC3 -->
+  <div class="screen" id="screen19"><h1>نازک رشتہ</h1><img src="https://pixeldrain.com/api/file/LAzWdH78/download"><p class="msg shayari">"<span class="name">Alina</span> تم میری بہترین دوست<br>اور سب سے پیاری ہو"</p><button onclick="nextScreen(20)">آگے</button></div>
 
-  <div class="screen" id="screen20"><h1>Keep Smiling</h1><p class="msg">Keep smiling, keep shining <span class="name">Alina</span></p><button onclick="nextScreen(21)">آگے</button></div>
+  <!-- 20 -->
+  <div class="screen" id="screen20"><h1>Keep Smiling</h1><p class="msg">Keep smiling, keep shining <span class="name">Alina</span> 😊</p><button onclick="nextScreen(21)">آگے</button></div>
 
-  <!-- پیج 21 - PIC 1 REPEAT -->
-  <div class="screen" id="screen21">
-    <h1>محبت</h1>
-    <img src="https://pixeldrain.com/api/file/8j8qddpB/download" alt="Pic1"> 
-    <p class="msg shayari">"<span class="name">Alina</span> تم سے محبت ہے<br>بے حساب بے مثال"</p>
-    <button onclick="nextScreen(22)">آگے</button>
-  </div>
+  <!-- 21 PIC1 -->
+  <div class="screen" id="screen21"><h1>محبت</h1><img src="https://pixeldrain.com/api/file/8j8qddpB/download"><p class="msg shayari">"<span class="name">Alina</span> تم سے محبت ہے<br>بے حساب بے مثال"</p><button onclick="nextScreen(22)">آگے</button></div>
 
+  <!-- 22 -->
   <div class="screen" id="screen22"><h1>Favorite</h1><p class="msg">You are my favorite person <span class="name">Alina</span></p><button onclick="nextScreen(23)">آگے</button></div>
 
-  <!-- پیج 23 - PIC 2 REPEAT -->
-  <div class="screen" id="screen23">
-    <h1>خوشی</h1>
-    <img src="https://pixeldrain.com/api/file/ZajURS3A/download" alt="Pic2"> 
-    <p class="msg shayari">"<span class="name">Alina</span> تمہارے ساتھ ہر لمحہ<br>خوبصورت بن جاتا ہے"</p>
-    <button onclick="nextScreen(24)">آگے</button>
-  </div>
+  <!-- 23 PIC2 -->
+  <div class="screen" id="screen23"><h1>خوشی</h1><img src="https://pixeldrain.com/api/file/ZajURS3A/download"><p class="msg shayari">"<span class="name">Alina</span> تمہارے ساتھ ہر لمحہ<br>خوبصورت بن جاتا ہے"</p><button onclick="nextScreen(24)">آگے</button></div>
 
+  <!-- 24 -->
   <div class="screen" id="screen24"><h1>Thank You</h1><p class="msg">Thank you for being you <span class="name">Alina</span></p><button onclick="nextScreen(25)">آگے</button></div>
 
-  <!-- پیج 25 - PIC 3 REPEAT -->
-  <div class="screen" id="screen25">
-    <h1>دعا</h1>
-    <img src="https://pixeldrain.com/api/file/LAzWdH78/download" alt="Pic3"> 
-    <p class="msg shayari">"اللہ <span class="name">Alina</span> تمہیں<br>ہمیشہ خوش رکھے"</p>
-    <button onclick="nextScreen(26)">آگے</button>
-  </div>
+  <!-- 25 PIC3 -->
+  <div class="screen" id="screen25"><h1>دعا</h1><img src="https://pixeldrain.com/api/file/LAzWdH78/download"><p class="msg shayari">"اللہ <span class="name">Alina</span> تمہیں<br>ہمیشہ خوش رکھے"</p><button onclick="nextScreen(26)">آگے</button></div>
 
+  <!-- 26 -->
   <div class="screen" id="screen26"><h1>Virtual Hug</h1><p class="msg">Sending you a big virtual hug <span class="heart">🤗</span><br>I miss you <span class="name">Alina</span></p><button onclick="nextScreen(27)">آگے</button></div>
 
-  <!-- پیج 27 - PIC 1 REPEAT -->
-  <div class="screen" id="screen27">
-    <h1>Forever</h1>
-    <img src="https://pixeldrain.com/api/file/8j8qddpB/download" alt="Pic1"> 
-    <p class="msg">Will you be mine forever <span class="name">Alina</span> <span class="heart">❤️</span></p>
-    <button onclick="nextScreen(28)">آگے</button>
-  </div>
+  <!-- 27 PIC1 -->
+  <div class="screen" id="screen27"><h1>Forever</h1><img src="https://pixeldrain.com/api/file/8j8qddpB/download"><p class="msg">Will you be my bestie forever <span class="name">Alina</span> <span class="heart">❤️</span></p><button onclick="nextScreen(28)">آگے</button></div>
 
+  <!-- 28 -->
   <div class="screen" id="screen28"><h1>Last Wish</h1><p class="msg">May we celebrate all your birthdays together <span class="name">Alina</span></p><button onclick="nextScreen(29)">آگے</button></div>
 
-  <!-- پیج 29 - PIC 2 REPEAT -->
-  <div class="screen" id="screen29">
-    <h1>تم انمول ہو</h1>
-    <img src="https://pixeldrain.com/api/file/ZajURS3A/download" alt="Pic2"> 
-    <p class="msg shayari">"<span class="name">Alina</span> تم انمول ہو<br>تم جیسا کوئی نہیں"</p>
-    <button onclick="nextScreen(30)">آگے</button>
-  </div>
+  <!-- 29 PIC2 -->
+  <div class="screen" id="screen29"><h1>تم انمول ہو</h1><img src="https://pixeldrain.com/api/file/ZajURS3A/download"><p class="msg shayari">"<span class="name">Alina</span> تم انمول ہو<br>تم جیسا کوئی نہیں"</p><button onclick="nextScreen(30)">آگے</button></div>
 
-  <div class="screen" id="screen30"><h1>Birthday Girl</h1><p class="msg">Today is all about you <span class="name">Alina</span></p><button onclick="nextScreen(31)">آگے</button></div>
+  <!-- 30 -->
+  <div class="screen" id="screen30"><h1>Birthday Girl</h1><p class="msg">Today is all about you <span class="name">Alina</span> 🎉</p><button onclick="nextScreen(31)">آگے</button></div>
 
-  <!-- پیج 31 - PIC 3 REPEAT -->
-  <div class="screen" id="screen31">
-    <h1>چمک</h1>
-    <img src="https://pixeldrain.com/api/file/LAzWdH78/download" alt="Pic3"> 
-    <p class="msg shayari">"<span class="name">Alina</span> تم چاند کا ٹکڑا ہو<br>تم سے روشنی ہے"</p>
-    <button onclick="nextScreen(32)">آگے</button>
-  </div>
+  <!-- 31 PIC3 -->
+  <div class="screen" id="screen31"><h1>چمک</h1><img src="https://pixeldrain.com/api/file/LAzWdH78/download"><p class="msg shayari">"<span class="name">Alina</span> تم چاند کا ٹکڑا ہو<br>تم سے روشنی ہے"</p><button onclick="nextScreen(32)">آگے</button></div>
 
+  <!-- 32 -->
   <div class="screen" id="screen32"><h1>Blessed</h1><p class="msg">I am blessed to know you <span class="name">Alina</span></p><button onclick="nextScreen(33)">آگے</button></div>
 
-  <!-- پیج 33 - PIC 1 REPEAT -->
-  <div class="screen" id="screen33">
-    <h1>خواہش</h1>
-    <img src="https://pixeldrain.com/api/file/8j8qddpB/download" alt="Pic1"> 
-    <p class="msg shayari">"<span class="name">Alina</span> میری دعا ہے<br>تمہاری ہر خواہش پوری ہو"</p>
-    <button onclick="nextScreen(34)">آگے</button>
-  </div>
+  <!-- 33 PIC1 -->
+  <div class="screen" id="screen33"><h1>خواہش</h1><img src="https://pixeldrain.com/api/file/8j8qddpB/download"><p class="msg shayari">"<span class="name">Alina</span> میری دعا ہے<br>تمہاری ہر خواہش پوری ہو"</p><button onclick="nextScreen(34)">آگے</button></div>
 
+  <!-- 34 -->
   <div class="screen" id="screen34"><h1>Queen</h1><p class="msg">You are my queen <span class="name">Alina</span> 👑</p><button onclick="nextScreen(35)">آگے</button></div>
 
-  <!-- پیج 35 - PIC 2 REPEAT -->
-  <div class="screen" id="screen35">
-    <h1>سکون</h1>
-    <img src="https://pixeldrain.com/api/file/ZajURS3A/download" alt="Pic2"> 
-    <p class="msg shayari">"<span class="name">Alina</span> تمہارا نام سن کر<br>دل کو سکون آ جاتا ہے"</p>
-    <button onclick="nextScreen(36)">آگے</button>
-  </div>
+  <!-- 35 PIC2 -->
+  <div class="screen" id="screen35"><h1>سکون</h1><img src="https://pixeldrain.com/api/file/ZajURS3A/download"><p class="msg shayari">"<span class="name">Alina</span> تمہارا نام سن کر<br>دل کو سکون آ جاتا ہے"</p><button onclick="nextScreen(36)">آگے</button></div>
 
-  <div class="screen" id="screen36"><h1>Celebration</h1><p class="msg">Let's celebrate you today <span class="name">Alina</span> 🎉</p><button onclick="nextScreen(37)">آگے</button></div>
+  <!-- 36 -->
+  <div class="screen" id="screen36"><h1>Celebration</h1><p class="msg">Let's celebrate you today <span class="name">Alina</span> 🎂</p><button onclick="nextScreen(37)">آگے</button></div>
 
-  <!-- پیج 37 - PIC 3 REPEAT -->
-  <div class="screen" id="screen37">
-    <h1>محبت نامہ</h1>
-    <img src="https://pixeldrain.com/api/file/LAzWdH78/download" alt="Pic3"> 
-    <p class="msg shayari">"<span class="name">Alina</span> تم میری کہانی ہو<br>تم میری زندگی ہو"</p>
-    <button onclick="nextScreen(38)">آگے</button>
-  </div>
+  <!-- 37 PIC3 -->
+  <div class="screen" id="screen37"><h1>محبت نامہ</h1><img src="https://pixeldrain.com/api/file/LAzWdH78/download"><p class="msg shayari">"<span class="name">Alina</span> تم میری کہانی ہو<br>تم میری زندگی ہو"</p><button onclick="nextScreen(38)">آگے</button></div>
 
+  <!-- 38 -->
   <div class="screen" id="screen38"><h1>Almost Done</h1><p class="msg">Get ready for the final surprise <span class="name">Alina</span></p><button onclick="nextScreen(39)">آگے</button></div>
 
-  <!-- پیج 39 - PIC 1 REPEAT -->
-  <div class="screen" id="screen39">
-    <h1>آخری پیغام</h1>
-    <img src="https://pixeldrain.com/api/file/8j8qddpB/download" alt="Pic1"> 
-    <p class="msg shayari">"<span class="name">Alina</span> تم دنیا کی<br>سب سے خوبصورت تحفہ ہو"</p>
-    <button onclick="nextScreen(40)">آخری پیج</button>
-  </div>
+  <!-- 39 PIC1 -->
+  <div class="screen" id="screen39"><h1>آخری پیغام</h1><img src="https://pixeldrain.com/api/file/8j8qddpB/download"><p class="msg shayari">"<span class="name">Alina</span> تم دنیا کی<br>سب سے خوبصورت تحفہ ہو"</p><button onclick="nextScreen(40)">آخری پیج</button></div>
 
+  <!-- 40 -->
   <div class="screen" id="screen40">
     <h1>Happy Birthday Alina! 🎂</h1>
-    <p class="msg shayari">I Love You <span class="heart">❤️</span><br><span class="name">Alina</span> تم سب سے خاص ہو میرے لیے!</p>
+    <p class="msg shayari">I Love You My Bestie <span class="heart">❤️</span><br><span class="name">Alina</span> تم سب سے خاص ہو میرے لیے!</p>
     <div class="crown">👑</div>
     <p class="msg">Happiest Birthday meri <span class="name">Alina</span></p>
   </div>
@@ -241,24 +165,16 @@
 <script>
   const correctPass = "0010";
   const music = document.getElementById("bgMusic");
-
   function checkPassword() {
     let pass = document.getElementById("password").value;
-    if(pass === correctPass) {
-      music.play().catch(()=>{});
-      nextScreen(2);
-    } else {
-      document.getElementById("error").style.display = "block";
-    }
+    if(pass === correctPass) { music.play().catch(()=>{}); nextScreen(2); } 
+    else { document.getElementById("error").style.display = "block"; }
   }
   function nextScreen(n) {
     document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
     document.getElementById("screen" + n).classList.add("active");
-    if(n === 40) {
-      setTimeout(() => { music.pause(); }, 10000);
-    }
+    if(n === 40) setTimeout(() => { music.pause(); }, 10000);
   }
 </script>
-
 </body>
 </html>
